@@ -1,0 +1,1 @@
+let blog = "Azul Web"
