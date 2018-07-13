@@ -1,0 +1,27 @@
+CREATE TABLE reservas (id INT AUTO_INCREMENT PRIMARY KEY,
+			rut VARCHAR(10),
+	                nombre VARCHAR(50),
+	                ingreso DATETIME, 
+			id_habitacion int NOT NULL);
+
+CREATE TABLE habitaciones (id int PRIMARY KEY NOT NULL,
+                       	   numero int);
+
+ALTER TABLE reservas 
+ADD FOREIGN KEY (id_habitacion)
+REFERENCES habitaciones (id);
+
+INSERT INTO habitaciones (id,numero) VALUES (1,101);
+INSERT INTO habitaciones (id,numero) VALUES (2,102);
+INSERT INTO habitaciones (id,numero) VALUES (3,103);
+INSERT INTO habitaciones (id,numero) VALUES (4,104);
+INSERT INTO habitaciones (id,numero) VALUES (5,105);
+INSERT INTO habitaciones (id,numero) VALUES (6,201);
+INSERT INTO habitaciones (id,numero) VALUES (7,202);
+INSERT INTO habitaciones (id,numero) VALUES (8,203);
+INSERT INTO habitaciones (id,numero) VALUES (9,204);
+INSERT INTO habitaciones (id,numero) VALUES (10,205);
+
+INSERT INTO reservas (rut,nombre,ingreso,id_habitacion) VALUES ('12888996-3','Daniel Osorio',NOW(),2);
+INSERT INTO reservas (rut,nombre,ingreso,id_habitacion) VALUES ('14452758-0','Ana Contreras',NOW(),4);
+
