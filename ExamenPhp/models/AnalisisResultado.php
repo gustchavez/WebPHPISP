@@ -29,6 +29,13 @@ class AnalisisResultado
         $this->empleadoRut     = $empleadoRut;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getId()
     {
         return $this->id;
@@ -140,4 +147,24 @@ class AnalisisResultado
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
+
+        public function buscarXId(){
+            $db = new DB();
+            $query = "SELECT id,fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut FROM AnalisisResultado WHERE id = '$this->id'";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $AnalisisResultado = new AnalisisResultado();
+            foreach($rs as $fila){
+                $AnalisisResultado->setId($fila["id"]);
+                $AnalisisResultado->setFecha($fila["fecha"]);    
+                $AnalisisResultado->setPpm($fila["ppm"]);    
+                $AnalisisResultado->setEstado($fila["estado"]);
+                $AnalisisResultado->setAnalisisMuestra($fila["analisisMuestra"]);
+                $AnalisisResultado->setAnalisisTipo($fila["analisisTipo"]);
+                $AnalisisResultado->setEmpleadoRut($fila["empleadoRut"]);
+            }
+            return $AnalisisResultado;
+        } 
 }
