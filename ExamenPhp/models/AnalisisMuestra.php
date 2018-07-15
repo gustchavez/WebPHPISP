@@ -30,6 +30,13 @@ class AnalisisMuestra
         }
 
 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+    
     public function getId()
     {
         return $this->id;
@@ -140,13 +147,14 @@ class AnalisisMuestra
 
         public function buscarXId(){
             $db = new DB();
-            $query = "SELECT fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra WHERE id = '$this->id'";
+            $query = "SELECT id,fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra WHERE id = '$this->id'";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             
             $AnalisisMuestra = new AnalisisMuestra();
             foreach($rs as $fila){
+                $AnalisisMuestra->setId($fila["id"]);
                 $AnalisisMuestra->setFechaRecepcion($fila["fechaRecepcion"]);    
                 $AnalisisMuestra->setTemperatura($fila["temperatura"]);    
                 $AnalisisMuestra->setCantidad($fila["cantidad"]);

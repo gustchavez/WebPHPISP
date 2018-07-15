@@ -27,6 +27,7 @@
 			}
             
 			public function editar() {
+				$this->analisisMuestra->setId($_REQUEST['id']);
 				$this->analisisMuestra->setFechaRecepcion($_REQUEST['fechaRecepcion']);    
 				$this->analisisMuestra->setTemperatura($_REQUEST['temperatura']);    
 				$this->analisisMuestra->setCantidad($_REQUEST['cantidad']);    
@@ -45,7 +46,7 @@
 			}
             
 			public function eliminar() {
-				$this->analisisMuestra->getId($_REQUEST['id']);   
+				$this->analisisMuestra->setId($_REQUEST['id']);   
 
 				if($this->analisisMuestra->eliminar()){
 					echo "analisisMuestra eliminado correctamente <br/>";
@@ -71,7 +72,7 @@
 			}
             
 			public function crudEditar() {
-				$this->analisisMuestra->getId($_REQUEST['id']);  
+				$this->analisisMuestra->setId($_REQUEST['id']);  
 				$analisisMuestra = $this->analisisMuestra->buscarXId();
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_analisisMuestra_edit.php';
