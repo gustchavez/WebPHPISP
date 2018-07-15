@@ -18,8 +18,8 @@
 		<td><?php echo $particular->getDireccion(); ?></td>
 		<td><?php echo $particular->getEmail()    ; ?></td>
         
-        <td><a href="?accion=crudEditar&codigo=<?php echo $particular->getCodigo();?>">Edit</a></td>
-        <td><a href="?accion=eliminar&codigo=<?php echo $particular->getCodigo();?>">Delete</a></td>
+        <td><a href="?accion=crudEditar&codigo=<?php echo $particular->getCodigo();?>">Edit</a>
+        - <a href="?accion=eliminar&codigo=<?php echo $particular->getCodigo();?>">Delete</a></td>
 	</tr>
 	<?php } ?>
 </table>
