@@ -29,7 +29,7 @@
 
 				if($this->telefono->editar()){
 					echo "Telefono editado correctamente <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
+					echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
 				}
 				else{
 					echo "No se pudo realizar la edicion <br/>";
@@ -42,7 +42,7 @@
 
 				if($this->telefono->eliminar()){
 					echo "Telefono eliminado correctamente <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
+					echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
 				}
 				else{
 					echo "No se pudo realizar la eliminación <br/>";
@@ -51,13 +51,16 @@
 			}
                                     
 			public function buscarTodas() {
-				$telefonos = $this->telefono->buscarTodas();
+				$this->telefono->setParticularCodigo($_REQUEST['codigo']);  
+				$telefonos = $this->telefono->buscarXParticularCodigo();
 	    		include "views/sections/cabecera.php";
 				include 'views/listado_telefonos.php';
 				include "views/sections/pie.php";
 			}
             
 			public function crudIngreso() {
+				$this->telefono->setParticularCodigo($_REQUEST['codigo']);                 
+				$telefono = $this->telefono;
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_telefono_new.php';
 				include "views/sections/pie.php";
