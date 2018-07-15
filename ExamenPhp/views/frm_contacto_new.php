@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 			<td>Empresa Codigo</td>
-			<td><input type="text" name="empresaCodigo" /></td>
+			<td><input type="text" name="empresaCodigo" value="<?php echo $contacto->getEmpresaCodigo(); ?>" readonly/></td>
 		</tr>
 		<tr>
 			<td></td>

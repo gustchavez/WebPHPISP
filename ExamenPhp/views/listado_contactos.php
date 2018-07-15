@@ -23,4 +23,5 @@
 	<?php } ?>
 </table>
 <br/>
-<a href="?accion=crudIngreso">Nuevo Contacto</a>
+<a href="?accion=crudIngreso&codigo=<?php echo $contacto->getEmpresaCodigo(); ?>">Nuevo Contacto</a>
+<a href="manejadorEmpresa.php">Volver Empresa</a>

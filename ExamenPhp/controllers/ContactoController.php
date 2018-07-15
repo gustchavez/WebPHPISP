@@ -17,12 +17,10 @@
 
 				if($this->contacto->crear()){
 					echo "Contacto ingresado correctamente <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
-				}
-				else{
+				} else{
 					echo "No se pudo realizar la creación <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
 				}
+			    echo "<a href='./manejadorcontacto.php?accion=buscarTodas&codigo=" .$this->contacto->getEmpresaCodigo() ."'>Volver</a>";
 			}
             
 			public function editar() {
@@ -34,12 +32,10 @@
 
 				if($this->contacto->editar()){
 					echo "Contacto editado correctamente <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
-				}
-				else{
+				}else{
 					echo "No se pudo realizar la edicion <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
 				}
+			    echo "<a href='./manejadorcontacto.php?accion=buscarTodas&codigo=" .$this->contacto->getEmpresaCodigo() ."'>Volver</a>";
 			}
             
 			public function eliminar() {
@@ -47,22 +43,23 @@
 
 				if($this->contacto->eliminar()){
 					echo "Contacto eliminado correctamente <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
-				}
-				else{
+				}else{
 					echo "No se pudo realizar la eliminación <br/>";
-					echo "<a href='./manejadorcontacto.php'>Volver</a>";
 				}
+			    echo "<a href='./manejadorcontacto.php?accion=buscarTodas&codigo=" .$this->contacto->getEmpresaCodigo() ."'>Volver</a>";
 			}
                                     
 			public function buscarTodas() {
-				$contactos = $this->contacto->buscarTodas();
+				$this->contacto->setEmpresaCodigo($_REQUEST['codigo']);
+				$contactos = $this->contacto->buscarXEmpresaCodigo();
 	    		include "views/sections/cabecera.php";
 				include 'views/listado_contactos.php';
 				include "views/sections/pie.php";
 			}
             
 			public function crudIngreso() {
+				$this->contacto->setEmpresaCodigo($_REQUEST['codigo']);               
+				$contacto = $this->contacto;
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_contacto_new.php';
 				include "views/sections/pie.php";

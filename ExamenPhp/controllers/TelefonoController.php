@@ -14,12 +14,10 @@
 
 				if($this->telefono->crear()){
 					echo "Telefono ingresado correctamente <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
-				}
-				else{
+				}else{
 					echo "No se pudo realizar la creación <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
 				}
+				echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
 			}
             
 			public function editar() {
@@ -29,12 +27,10 @@
 
 				if($this->telefono->editar()){
 					echo "Telefono editado correctamente <br/>";
-					echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
-				}
-				else{
+				}else{
 					echo "No se pudo realizar la edicion <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
 				}
+				echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
 			}
             
 			public function eliminar() {
@@ -42,12 +38,10 @@
 
 				if($this->telefono->eliminar()){
 					echo "Telefono eliminado correctamente <br/>";
-					echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
-				}
-				else{
+				}else{
 					echo "No se pudo realizar la eliminación <br/>";
-					echo "<a href='./manejadortelefono.php'>Volver</a>";
 				}
+				echo "<a href='./manejadortelefono.php?accion=buscarTodas&codigo=" .$this->telefono->getParticularCodigo() ."'>Volver</a>";
 			}
                                     
 			public function buscarTodas() {
