@@ -112,19 +112,19 @@ class AnalisisMuestra
 
     public function buscarTodas(){
             $db = new DB();
-            $query = "SELECT id, fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra";
+            $query = "SELECT id, fecha_recepcion , temperatura, cantidad, empleado_rut , particular_codigo , empresa_codigo  FROM analisis_muestra";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             foreach($rs as $fila){
-                $AnalisisMuestra[] = new AnalisisMuestra($fila["id"],$fila["fechaRecepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleadoRut"],$fila["particularCodigo"],$fila["empresaCodigo"]);
+                $AnalisisMuestra[] = new AnalisisMuestra($fila["id"],$fila["fechaRecepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
             }
             return $AnalisisMuestra;
         }
         
         public function crear($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
             $db = new DB();
-            $query = "INSERT INTO AnalisisMuestra (fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo) VALUES ('$fechaRecepcion', '$temperatura', '$cantidad', '$empleadoRut', '$particularCodigo', '$empresaCodigo')";
+            $query = "INSERT INTO analisis_muestra (fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo) VALUES ('$fechaRecepcion', '$temperatura', '$cantidad', '$empleadoRut', '$particularCodigo', '$empresaCodigo')";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -132,14 +132,14 @@ class AnalisisMuestra
         
         public function editar($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
             $db = new DB();
-            $query = "UPDATE AnalisisMuestra SET fechaRecepcion = '$fechaRecepcion', temperatura = '$temperatura', cantidad = '$cantidad', empleadoRut = '$empleadoRut', particularCodigo = '$particularCodigo',empresaCodigo = '$empresaCodigo' WHERE id = $id";
+            $query = "UPDATE analisis_muestra SET fecha_recepcion = '$fechaRecepcion', temperatura = '$temperatura', cantidad = '$cantidad', empleado_rut = '$empleadoRut', particular_codigo = '$particularCodigo',empresa_codigo = '$empresaCodigo' WHERE id = $id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
         public function eliminar($id){
             $db = new DB();
-            $query = "DELETE FROM AnalisisMuestra WHERE id = $id";
+            $query = "DELETE FROM analisis_muestra WHERE id = $id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -147,7 +147,7 @@ class AnalisisMuestra
 
         public function buscarXId(){
             $db = new DB();
-            $query = "SELECT id,fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra WHERE id = '$this->id'";
+            $query = "SELECT id,fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo FROM analisis_muestra WHERE id = '$this->id'";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
@@ -155,12 +155,12 @@ class AnalisisMuestra
             $AnalisisMuestra = new AnalisisMuestra();
             foreach($rs as $fila){
                 $AnalisisMuestra->setId($fila["id"]);
-                $AnalisisMuestra->setFechaRecepcion($fila["fechaRecepcion"]);    
+                $AnalisisMuestra->setFechaRecepcion($fila["fecha_recepcion"]);    
                 $AnalisisMuestra->setTemperatura($fila["temperatura"]);    
                 $AnalisisMuestra->setCantidad($fila["cantidad"]);
-                $AnalisisMuestra->setEmpleadoRut($fila["empleadoRut"]);
-                $AnalisisMuestra->setParticularCodigo($fila["particularCodigo"]);
-                $AnalisisMuestra->setEmpresaCodigo($fila["empresaCodigo"]);
+                $AnalisisMuestra->setEmpleadoRut($fila["empleado_rut"]);
+                $AnalisisMuestra->setParticularCodigo($fila["particular_codigo"]);
+                $AnalisisMuestra->setEmpresaCodigo($fila["empresa_codigo"]);
             }
             return $AnalisisMuestra;
         } 

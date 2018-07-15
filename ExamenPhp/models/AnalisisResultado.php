@@ -115,19 +115,19 @@ class AnalisisResultado
 
     public function buscarTodas(){
             $db = new DB();
-            $query = "SELECT id, fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut FROM AnalisisResultado";
+            $query = "SELECT id, fecha, ppm, estado, analisis_muestra_id , analisis_tipo_id , empleado_rut  FROM analisis_resultado";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             foreach($rs as $fila){
-                $AnalisisResultado[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisisMuestra"],$fila["analisisTipo"],$fila["empleadoRut"]);
+                $AnalisisResultado[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
             }
             return $AnalisisResultado;
         }
         
         public function crear($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
             $db = new DB();
-            $query = "INSERT INTO AnalisisResultado (fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut) VALUES ('$fecha', '$ppm', '$estado', '$analisisMuestra', '$analisisTipo', '$empleadoRut')";
+            $query = "INSERT INTO analisis_resultado (fecha, ppm, estado, analisis_muestra_id, analisis_tipo_id, empleado_rut) VALUES ('$fecha', '$ppm', '$estado', '$analisisMuestra', '$analisisTipo', '$empleadoRut')";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -135,14 +135,14 @@ class AnalisisResultado
         
         public function editar($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
             $db = new DB();
-            $query = "UPDATE AnalisisResultado SET fecha = '$fecha', ppm = '$ppm', estado = '$estado', analisisMuestra = '$analisisMuestra', analisisTipo = '$analisisTipo',empleadoRut = '$empleadoRut' WHERE id = $id";
+            $query = "UPDATE analisis_resultado SET fecha = '$fecha', ppm = '$ppm', estado = '$estado', analisis_muestra_id = '$analisisMuestra', analisis_tipo_id = '$analisisTipo',empleado_rut = '$empleadoRut' WHERE id = $id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
         public function eliminar($id){
             $db = new DB();
-            $query = "DELETE FROM AnalisisResultado WHERE id = $id";
+            $query = "DELETE FROM analisis_resultado WHERE id = $id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -150,7 +150,7 @@ class AnalisisResultado
 
         public function buscarXId(){
             $db = new DB();
-            $query = "SELECT id,fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut FROM AnalisisResultado WHERE id = '$this->id'";
+            $query = "SELECT id,fecha, ppm, estado, analisis_muestra_id, analisis_tipo_id, empleado_rut FROM analisis_resultado WHERE id = '$this->id'";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
@@ -161,10 +161,24 @@ class AnalisisResultado
                 $AnalisisResultado->setFecha($fila["fecha"]);    
                 $AnalisisResultado->setPpm($fila["ppm"]);    
                 $AnalisisResultado->setEstado($fila["estado"]);
-                $AnalisisResultado->setAnalisisMuestra($fila["analisisMuestra"]);
-                $AnalisisResultado->setAnalisisTipo($fila["analisisTipo"]);
-                $AnalisisResultado->setEmpleadoRut($fila["empleadoRut"]);
+                $AnalisisResultado->setAnalisisMuestra($fila["analisis_muestra_id"]);
+                $AnalisisResultado->setAnalisisTipo($fila["analisis_tipo_id"]);
+                $AnalisisResultado->setEmpleadoRut($fila["empleado_rut"]);
             }
             return $AnalisisResultado;
         } 
+
+        public function graficoXId()
+        {
+            $db = new DB();
+            $query="SELECT analisis_tipo.nombre,analisis_resultado.ppm FROM analisis_tipo join analisis_resultado on analisis_tipo.id = analisis_resultado.analisis_tipo_id ORDER BY analisis_resultado.id WHERE id = '$this->id' ";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            $json = [];
+            foreach($rs as $fila){
+                $json[]= [(string)$fila["nombre"], (int)$fila["ppm"]];
+            }
+            return json_encode($json);
+        }
 }
