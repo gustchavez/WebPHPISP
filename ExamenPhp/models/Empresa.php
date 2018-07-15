@@ -13,6 +13,15 @@ class Empresa
 
     private $direccion;
 
+    public function __construct($codigo=null, $rut=null, $nombre=null, $password=null, $direccion=null)
+    {  
+        $this->codigo    = $codigo;
+        $this->rut       = $rut;
+        $this->nombre  = $nombre;
+        $this->password    = $password;
+        $this->direccion = $direccion;
+    }
+
     public function getCodigo()
     {
         return $this->codigo;

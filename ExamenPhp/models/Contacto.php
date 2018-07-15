@@ -12,6 +12,15 @@ class Contacto
 
     private $empresaCodigo;
 
+    public function __construct($rut=null, $nombre=null, $email=null, $telefono=null, $empresaCodigo=null)
+    {  
+        $this->rut    = $rut;
+        $this->nombre       = $nombre;
+        $this->email  = $email;
+        $this->telefono    = $telefono;
+        $this->empresaCodigo = $empresaCodigo;
+    }
+
     public function setRut($rut)
     {
         $this->rut = $rut;

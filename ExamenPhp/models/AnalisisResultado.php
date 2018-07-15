@@ -17,6 +17,17 @@ class AnalisisResultado
 
     private $empleadoRut;
 
+    public function __construct($id=null, $fecha=null, $ppm=null, $estado=null, $analisisMuestra=null, $analisisTipo=null, $empleadoRut=null)
+    {  
+        $this->id    = $id;
+        $this->fecha       = $fecha;
+        $this->ppm  = $ppm;
+        $this->estado    = $estado;
+        $this->analisisMuestra = $analisisMuestra;
+        $this->analisisTipo     = $analisisTipo;
+        $this->empleadoRut     = $empleadoRut;
+    }
+
     public function getId()
     {
         return $this->id;

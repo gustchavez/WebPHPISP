@@ -11,6 +11,14 @@ class Empleado
 
     private $categoria;
 
+    public function __construct($rut=null, $nombre=null, $password=null, $categoria=null)
+    {  
+        $this->rut    = $rut;
+        $this->nombre       = $nombre;
+        $this->password  = $password;
+        $this->categoria    = $categoria;
+    }
+
     public function setRut($rut)
     {
         $this->rut = $rut;

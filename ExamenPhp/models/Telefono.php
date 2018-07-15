@@ -9,6 +9,13 @@ class Telefono
 
     private $particularCodigo;
 
+    public function __construct($id=null, $numero=null, $particularCodigo=null)
+    {  
+        $this->id    = $id;
+        $this->numero       = $numero;
+        $this->particularCodigo  = $particularCodigo;
+    }
+
     public function getId()
     {
         return $this->id;

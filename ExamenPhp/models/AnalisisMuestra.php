@@ -16,6 +16,17 @@ class AnalisisMuestra
 
     private $empresaCodigo;
 
+    public function __construct($id=null, $fechaRecepcion=null, $temperatura=null, $cantidad=null, $empleadoRut=null, $particularCodigo=null, $empresaCodigo=null)
+        {  
+            $this->id    = $id;
+            $this->fechaRecepcion       = $fechaRecepcion;
+            $this->temperatura  = $temperatura;
+            $this->cantidad    = $cantidad;
+            $this->empleadoRut = $empleadoRut;
+            $this->particularCodigo     = $particularCodigo;
+            $this->empresaCodigo     = $empresaCodigo;
+        }
+
 
     public function getId()
     {
