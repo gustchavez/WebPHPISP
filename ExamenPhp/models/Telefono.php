@@ -1,86 +1,107 @@
 <?php
-require_once "DB.php";
+    require_once "DB.php";
 
-class Telefono
-{
- 
-    private $id;
+    class Telefono{ 
+        private $id, $numero, $particularCodigo;
 
-    private $numero;
+        public function __construct($id=null, $numero=null, $particularCodigo=null)
+        {  
+            $this->id                = $id;
+            $this->numero            = $numero;
+            $this->particularCodigo  = $particularCodigo;
+        }
 
-    private $particularCodigo;
+        public function setId($id)
+        {
+            $this->id = $id;
+        }
+        public function getId()
+        {
+            return $this->id;
+        }
 
-    public function __construct($id=null, $numero=null, $particularCodigo=null)
-    {  
-        $this->id    = $id;
-        $this->numero       = $numero;
-        $this->particularCodigo  = $particularCodigo;
-    }
+        public function setNumero($numero)
+        {
+            $this->numero = $numero;
+        }
 
-    public function getId()
-    {
-        return $this->id;
-    }
+        public function getNumero()
+        {
+            return $this->numero;
+        }
 
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
+        public function setParticularCodigo($particularCodigo)
+        {
+            $this->particularCodigo = $particularCodigo;
+        }
 
-        return $this;
-    }
+        public function getParticularCodigo()
+        {
+            return $this->particularCodigo;
+        }
 
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
-    public function setParticularCodigo($particularCodigo = null)
-    {
-        $this->particularCodigo = $particularCodigo;
-
-        return $this;
-    }
-
-    public function getParticularCodigo()
-    {
-        return $this->particularCodigo;
-    }
-
-    $id=null, $numero=null, $particularCodigo=null
-    Telefono
-
-    public function buscarTodas(){
+        public function buscarTodas(){
             $db = new DB();
-            $query = "SELECT id, numero, particularCodigo FROM Telefono";
+            $query = "SELECT id, numero, particular_codigo FROM Telefono";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             foreach($rs as $fila){
-                $Telefono[] = new Telefono($fila["id"],$fila["numero"],$fila["particularCodigo"]);
+                $Telefonos[] = new Telefono($fila["id"],$fila["numero"],$fila["particular_codigo"]);
+            }
+            return $Telefonos;
+        }
+        
+        public function buscarXId(){
+            $db = new DB();
+            $query = "SELECT id, numero, particular_codigo FROM Telefono WHERE id = $this->id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $Telefono = new Telefono();
+            foreach($rs as $fila){
+                $Telefono->setId($fila["id"]);    
+                $Telefono->setNumero($fila["numero"]);    
+                $Telefono->setParticularCodigo($fila["particular_codigo"]);
             }
             return $Telefono;
         }
         
-        public function crear($id, $numero, $particularCodigo){
+        public function buscarXParticularCodigo(){
             $db = new DB();
-            $query = "INSERT INTO Telefono (numero, particularCodigo) VALUES ('$numero', '$particularCodigo'";
+            $query = "SELECT id, numero, particular_codigo FROM Telefono WHERE id = $this->particularCodigo";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $Telefonos[] = new Telefono($fila["id"],$fila["numero"],$fila["particular_codigo"]);
+            }
+            return $Telefonos;
+        }
+        
+        public function crear(){
+            $db = new DB();
+            $query = "INSERT INTO Telefono (numero, particular_codigo) VALUES ('$this->numero', $this->particularCodigo)";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
         
-        public function editar($id, $numero, $particularCodigo){
+        public function editar(){
             $db = new DB();
-            $query = "UPDATE Telefono SET numero = '$numero', particularCodigo = '$particularCodigo' WHERE id = $id";
+            $query = "UPDATE Telefono SET numero = '$this->numero', particular_codigo = $this->particularCodigo WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
-        public function eliminar($id){
+        
+        public function eliminar(){
             $db = new DB();
-            $query = "DELETE FROM Telefono WHERE id = $id";
+            $query = "DELETE FROM Telefono WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
-}
+    }
+?>
