@@ -1,5 +1,5 @@
 	<?php
-		require_once "/../models/Particular.php";
+		require_once "./models/Particular.php";
 
 		class ParticularController {
 			public $particular;	
@@ -8,36 +8,75 @@
 		        $this->particular = new Particular();
 		    } 	
 
-			public function crear($codigo=null, $rut=null, $password=null, $nombre=null, $direccion=null, $email=null) {
-				$this->particular->setCodigo($codigo);    
-				$this->particular->setRut($rut);    
-				$this->particular->setPassword($password);
-				$this->particular->setNombre($nombre);
-				$this->particular->setDireccion$direccion);
-				$this->particular->setEmail($email);
+			public function crear() {   
+				$this->particular->setRut($_REQUEST['rut']);    
+				$this->particular->setPassword($_REQUEST['password']);
+				$this->particular->setNombre($_REQUEST['nombre']);
+				$this->particular->setDireccion($_REQUEST['direccion']);
+				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->crear()){
-					echo "Particular ingresada correctamente <br/>";
-					echo "<a href='../index.php'>Volver</a>";
+					echo "Particular ingresado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 				else{
-					echo "No se pudo realizar la particular <br/>";
-					echo "<a href='../index.php'>Volver</a>";
+					echo "No se pudo realizar la creación <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
+            
+			public function editar() {
+				$this->particular->setCodigo($_REQUEST['codigo']);  
+				$this->particular->setRut($_REQUEST['rut']);    
+				$this->particular->setPassword($_REQUEST['password']);
+				$this->particular->setNombre($_REQUEST['nombre']);
+				$this->particular->setDireccion($_REQUEST['direccion']);
+				$this->particular->setEmail($_REQUEST['email']);
 
-			public function mostrarFormularioIngreso() {
-	    		include "../views/sections/cabecera.php";
-				include '../views/frm_rarticular.php';
-				include "../views/sections/pie.php";
+				if($this->particular->editar()){
+					echo "Particular editado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
+				}
+				else{
+					echo "No se pudo realizar la edicion <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
+				}
 			}
+            
+			public function eliminar() {
+				$this->particular->setCodigo($_REQUEST['codigo']);
 
+				if($this->particular->eliminar()){
+					echo "Particular eliminado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
+				}
+				else{
+					echo "No se pudo realizar la eliminación <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
+				}
+			}
+                                    
 			public function buscarTodas() {
-				$rarticulares = $this->particular->buscarTodas();
+				$particulares = $this->particular->buscarTodas();
 	    		include "views/sections/cabecera.php";
 				include 'views/listado_particulares.php';
 				include "views/sections/pie.php";
 			}
+            
+			public function crudIngreso() {
+	    		include "views/sections/cabecera.php";
+				include 'views/frm_particular_new.php';
+				include "views/sections/pie.php";
+			}
+            
+			public function crudEditar() {
+				$this->particular->setCodigo($_REQUEST['codigo']);
+				$particular = $this->particular->buscarXCodigo();
+	    		include "views/sections/cabecera.php";
+				include 'views/frm_particular_edit.php';
+				include "views/sections/pie.php";
+			}
+            
 		}
 	?>
 
