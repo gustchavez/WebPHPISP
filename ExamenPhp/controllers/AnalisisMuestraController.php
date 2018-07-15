@@ -61,7 +61,7 @@
 			public function buscarTodas() {
 				$analisisMuestras = $this->analisisMuestra->buscarTodas();
 	    		include "views/sections/cabecera.php";
-				include 'views/listado_analisisMuestras.php';
+				include 'views/listado_analisisMuestra.php';
 				include "views/sections/pie.php";
 			}
             
