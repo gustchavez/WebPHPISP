@@ -16,7 +16,7 @@
         var options ={
           chart: {
               renderTo: 'container',
-              type: 'pie',
+              type: 'column',
 
           },
           title: {
