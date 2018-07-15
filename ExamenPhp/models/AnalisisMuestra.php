@@ -137,4 +137,23 @@ class AnalisisMuestra
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
+
+        public function buscarXId(){
+            $db = new DB();
+            $query = "SELECT fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra WHERE id = '$this->id'";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $AnalisisMuestra = new AnalisisMuestra();
+            foreach($rs as $fila){
+                $AnalisisMuestra->setFechaRecepcion($fila["fechaRecepcion"]);    
+                $AnalisisMuestra->setTemperatura($fila["temperatura"]);    
+                $AnalisisMuestra->setCantidad($fila["cantidad"]);
+                $AnalisisMuestra->setEmpleadoRut($fila["empleadoRut"]);
+                $AnalisisMuestra->setParticularCodigo($fila["particularCodigo"]);
+                $AnalisisMuestra->setEmpresaCodigo($fila["empresaCodigo"]);
+            }
+            return $AnalisisMuestra;
+        } 
 }
