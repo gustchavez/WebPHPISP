@@ -117,7 +117,7 @@ class AnalisisMuestra
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             foreach($rs as $fila){
-                $AnalisisMuestra[] = new AnalisisMuestra($fila["id"],$fila["fechaRecepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
+                $AnalisisMuestra[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
             }
             return $AnalisisMuestra;
         }
