@@ -11,7 +11,7 @@
 	</tr>
 	<?php foreach ($analisisResultados as $analisisResultado){ ?>
 	<tr>
-		<td><?php echo $analisisResultado->getFecha()   ; ?></td>
+		<td><?php echo $analisisResultado->getFecha(); ?></td>
 		<td><?php echo $analisisResultado->getPpm()      ; ?></td>
 		<td><?php echo $analisisResultado->getEstado()      ; ?></td>
 		<td><?php echo $analisisResultado->getAnalisisMuestra()      ; ?></td>

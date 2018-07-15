@@ -61,7 +61,7 @@
 			public function buscarTodas() {
 				$analisisResultados = $this->analisisResultado->buscarTodas();
 	    		include "views/sections/cabecera.php";
-				include 'views/listado_analisisResultados.php';
+				include 'views/listado_analisisResultado.php';
 				include "views/sections/pie.php";
 			}
             

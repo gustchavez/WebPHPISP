@@ -120,9 +120,9 @@ class AnalisisResultado
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
             foreach($rs as $fila){
-                $AnalisisResultado[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
+                $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
             }
-            return $AnalisisResultado;
+            return $AnalisisResultados;
         }
         
         public function crear($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
