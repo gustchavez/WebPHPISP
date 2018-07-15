@@ -1,4 +1,6 @@
 <?php
+require_once "DB.php";
+
 class AnalisisMuestra
 {
 
@@ -100,4 +102,39 @@ class AnalisisMuestra
     {
         return $this->empresaCodigo;
     }
+
+    public function buscarTodas(){
+            $db = new DB();
+            $query = "SELECT id, fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo FROM AnalisisMuestra";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $AnalisisMuestra[] = new AnalisisMuestra($fila["id"],$fila["fechaRecepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleadoRut"],$fila["particularCodigo"],$fila["empresaCodigo"]);
+            }
+            return $AnalisisMuestra;
+        }
+        
+        public function crear($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
+            $db = new DB();
+            $query = "INSERT INTO AnalisisMuestra (fechaRecepcion, temperatura, cantidad, empleadoRut, particularCodigo, empresaCodigo) VALUES ('$fechaRecepcion', '$temperatura', '$cantidad', '$empleadoRut', '$particularCodigo', '$empresaCodigo')";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        
+        public function editar($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
+            $db = new DB();
+            $query = "UPDATE AnalisisMuestra SET fechaRecepcion = '$fechaRecepcion', temperatura = '$temperatura', cantidad = '$cantidad', empleadoRut = '$empleadoRut', particularCodigo = '$particularCodigo',empresaCodigo = '$empresaCodigo' WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        public function eliminar($id){
+            $db = new DB();
+            $query = "DELETE FROM AnalisisMuestra WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
 }

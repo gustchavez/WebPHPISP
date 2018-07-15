@@ -1,4 +1,5 @@
 <?php
+require_once "DB.php";
 
 class Contacto
 {
@@ -80,4 +81,39 @@ class Contacto
     {
         return $this->empresaCodigo;
     }
+
+    public function buscarTodas(){
+            $db = new DB();
+            $query = "SELECT rut, nombre, email, telefono, empresaCodigo FROM Contacto";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $Contacto[] = new Contacto($fila["rut"],$fila["nombre"],$fila["email"],$fila["telefono"],$fila["empresaCodigo"]);
+            }
+            return $Contacto;
+        }
+        
+        public function crear($rut, $nombre, $email, $telefono, $empresaCodigo){
+            $db = new DB();
+            $query = "INSERT INTO Contacto (nombre, email, telefono, empresaCodigo) VALUES ('$nombre', '$email', '$telefono', '$empresaCodigo')";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        
+        public function editar($rut, $nombre, $email, $telefono, $empresaCodigo){
+            $db = new DB();
+            $query = "UPDATE Contacto SET nombre = '$nombre', email = '$email', telefono = '$telefono', empresaCodigo = '$empresaCodigo' WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        public function eliminar($id){
+            $db = new DB();
+            $query = "DELETE FROM Contacto WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
 }

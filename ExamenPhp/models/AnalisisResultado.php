@@ -1,4 +1,5 @@
 <?php
+require_once "DB.php";
 
 class AnalisisResultado
 {
@@ -104,4 +105,39 @@ class AnalisisResultado
     {
         return $this->empleadoRut;
     }
+
+    public function buscarTodas(){
+            $db = new DB();
+            $query = "SELECT id, fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut FROM AnalisisResultado";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $AnalisisResultado[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisisMuestra"],$fila["analisisTipo"],$fila["empleadoRut"]);
+            }
+            return $AnalisisResultado;
+        }
+        
+        public function crear($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
+            $db = new DB();
+            $query = "INSERT INTO AnalisisResultado (fecha, ppm, estado, analisisMuestra, analisisTipo, empleadoRut) VALUES ('$fecha', '$ppm', '$estado', '$analisisMuestra', '$analisisTipo', '$empleadoRut')";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        
+        public function editar($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
+            $db = new DB();
+            $query = "UPDATE AnalisisResultado SET fecha = '$fecha', ppm = '$ppm', estado = '$estado', analisisMuestra = '$analisisMuestra', analisisTipo = '$analisisTipo',empleadoRut = '$empleadoRut' WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        public function eliminar($id){
+            $db = new DB();
+            $query = "DELETE FROM AnalisisResultado WHERE id = $id";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
 }
