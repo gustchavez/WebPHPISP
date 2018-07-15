@@ -8,7 +8,7 @@
 		</tr>
 		<tr>
 			<td>Particular Codigo</td>
-			<td><input type="text" name="particularCodigo" /></td>
+			<td><input type="text" name="particularCodigo" value="<?php echo $telefono->getParticularCodigo(); ?>" readonly/></td>
 		</tr>
 		<tr>
 			<td></td>

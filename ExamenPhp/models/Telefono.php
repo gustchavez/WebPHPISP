@@ -70,13 +70,15 @@
         
         public function buscarXParticularCodigo(){
             $db = new DB();
-            $query = "SELECT id, numero, particular_codigo FROM Telefono WHERE id = $this->particularCodigo";
+            $query = "SELECT id, numero, particular_codigo FROM Telefono WHERE particular_codigo = $this->particularCodigo";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+                      
             foreach($rs as $fila){
                 $Telefonos[] = new Telefono($fila["id"],$fila["numero"],$fila["particular_codigo"]);
-            }
+            }          
+            
             return $Telefonos;
         }
         
