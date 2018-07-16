@@ -1,20 +1,34 @@
-<h1>Crear Telefono</h1>
+<main class="main col">
+				<div class="row">
+					<div class="columna col-lg-7">
+						<div class="widget nueva_entrada">
+							<h3 class="titulo">Crear Telefono</h3>
 
-<form action="?accion=crear" method="post">
-	<table>		
-		<tr>
-			<td>Numero</td>
-			<td><input type="text" name="numero"/></td>
-		</tr>
-		<tr>
-			<td>Particular Codigo</td>
-			<td><input type="text" name="particularCodigo" value="<?php echo $telefono->getParticularCodigo(); ?>" readonly/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>
-				<input type="submit" value="Crear" />
-			</td>
-		</tr>
-	</table>
-</form>
+							<form action="?accion=crear" method="post">
+							
+								<input type="text" name="numero"/>
+								<input type="text" name="particularCodigo" value="<?php echo $telefono->getParticularCodigo(); ?>" readonly/>
+
+
+
+								<div class="d-flex justify-content-end">
+									<button><i class="icon icon-edit"></i> Crear </button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="columna col-lg-5">				
+						<div class="widget comentarios">
+							<div class="contenedor">
+								<div class="comentario d-flex flex-wrap">
+									<div class="foto">										
+										<img src="images/comp.jpg">
+										<p style="text-align: justify;">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea accusantium, explicabo. Deleniti veritatis officiis similique suscipit officia quae tempora, modi quibusdam consectetur sint dignissimos aperiam quasi repellat aspernatur enim atque.</p>
+									</div>				
+								</div>		
+							</div>
+						</div>
+					</div>
+				</div>
+</main>
