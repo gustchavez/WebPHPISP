@@ -93,5 +93,11 @@
 				include "views/sections/pie.php";
 			}
             
+            public function buscarMuestrasPendienteResultados() {
+				$analisisMuestras = $this->analisisMuestra->muestrasSinResultados();
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_analisisMuestra.php';
+				include "views/sections/pie.php";
+			}
 		}
 	?>

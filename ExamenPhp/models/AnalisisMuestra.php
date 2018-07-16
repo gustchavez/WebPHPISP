@@ -164,4 +164,16 @@ class AnalisisMuestra
             }
             return $AnalisisMuestra;
         } 
+        public function muestrasSinResultados()
+        {
+            $db = new DB();
+            $query = "SELECT m.id,m.fecha_recepcion, m.temperatura, m.cantidad, m.empleado_rut, m.particular_codigo, m.empresa_codigo FROM analisis_muestra m LEFT JOIN analisis_resultado r on m.id = r.analisis_muestra_id WHERE r.id is null ";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
+            }
+            return $AnalisisMuestras;
+        }
 }
