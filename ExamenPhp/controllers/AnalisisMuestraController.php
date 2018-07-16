@@ -92,6 +92,8 @@
 				include 'views/frm_analisisMuestra_edit.php';
 				include "views/sections/pie.php";
 			}
+
+
             
             public function buscarMuestrasPendienteResultados() {
 				$analisisMuestras = $this->analisisMuestra->muestrasSinResultados();
