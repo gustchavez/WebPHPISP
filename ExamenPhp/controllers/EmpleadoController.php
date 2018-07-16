@@ -59,6 +59,14 @@
 				include 'views/listado_empleados.php';
 				include "views/sections/pie.php";
 			}
+                         
+			public function buscarXCategoria() {
+				$this->empleado->setCategoria($_REQUEST['categoria']);
+				$empleados = $this->empleado->buscarXCategoria();
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_empleados.php';
+				include "views/sections/pie.php";
+			}
             
 			public function crudIngreso() {
 	    		include "views/sections/cabecera.php";

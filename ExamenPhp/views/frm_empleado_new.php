@@ -16,7 +16,14 @@
 		</tr>
 		<tr>
 			<td>Categoria</td>
-			<td><input type="text" name="categoria" /></td>
+			<td>
+                <select name="categoria">
+                  <option value="A">Administrador</option>
+                  <option value="R">Recepcionasta Muestra</option>
+                  <option value="T">Tecnico Analista</option>
+                </select>
+            </td>
+            
 		</tr>
 		<tr>
 			<td></td>

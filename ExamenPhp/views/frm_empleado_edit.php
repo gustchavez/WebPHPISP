@@ -16,7 +16,28 @@
 		</tr>
 		<tr>
 			<td>Categoria</td>
-			<td><input type="text" name="categoria" value="<?php echo $empleado->getCategoria(); ?>"/></td>
+			<td>
+                <select name="categoria">
+                    <?php if ($empleado->getCategoria() == "A") {
+                        echo "<option selected value='A'>Administrador</option>
+                              <option value='R'>Recepcionasta Muestra</option>
+                              <option value='T'>Tecnico Analista</option>";
+                    } elseif ($empleado->getCategoria() == "R") {
+                        echo "<option value='A'>Administrador</option>
+                              <option selected value='R'>Recepcionasta Muestra</option>
+                              <option value='T'>Tecnico Analista</option>";
+                    } elseif ($empleado->getCategoria() == "T") {
+                        echo "<option value='A'>Administrador</option>
+                              <option value='R'>Recepcionasta Muestra</option>
+                              <option selected value='T'>Tecnico Analista</option>";
+                    } else {
+                             "<option value='A'>Administrador</option>
+                              <option value='R'>Recepcionasta Muestra</option>
+                              <option value='T'>Tecnico Analista</option>";
+                    }
+                    ?>
+                </select>
+            </td>
 		</tr>
 		<tr>
 			<td></td>

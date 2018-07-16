@@ -13,7 +13,17 @@
 		<td><?php echo $empleado->getRut()      ; ?></td>
 		<td><?php echo $empleado->getNombre()   ; ?></td>
 		<td><?php echo $empleado->getPassword() ; ?></td>
-		<td><?php echo $empleado->getCategoria(); ?></td>
+		<td><?php   if ($empleado->getCategoria()       == "A") {
+                        echo "Administrador";
+                    } elseif ($empleado->getCategoria() == "R") {
+                        echo "Recepcionasta Muestra";
+                    } elseif ($empleado->getCategoria() == "T") {
+                        echo "Tecnico Analista";
+                    } else {
+                             "Sin Categoria";
+                    }
+                    ?>
+        </td>
         
         <td><a href="?accion=crudEditar&rut=<?php echo $empleado->getRut();?>">Edit</a>
         - <a href="?accion=eliminar&rut=<?php echo $empleado->getRut();?>">Delete</a></td>
