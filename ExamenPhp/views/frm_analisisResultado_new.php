@@ -20,11 +20,23 @@
 		</tr>
 		<tr>
 			<td>Analisis Tipo</td>
-			<td><input type="text" name="analisisTipo" /></td>
+			<td>
+				<select name="analisisTipo">
+				<?php foreach ($tipos as $tipo) {?>
+	              <option value='<?php echo $tipo->getId(); ?>'><?php echo $tipo->getNombre(); ?></option>
+	              	<?php } ?>
+	            </select>
+			</td>	
 		</tr>
 		<tr>
 			<td>Empleado Rut</td>
-			<td><input type="text" name="empleadoRut" /></td>
+			<td>
+				<select name="empleadoRut">
+				<?php foreach ($emplRuts as $emplRut) {?>
+	              <option value='<?php echo $emplRut->getRut(); ?>'><?php echo $emplRut->getNombre(); ?></option>
+	              	<?php } ?>
+	            </select>
+			</td>
 		</tr>
 		<tr>
 			<td></td>
