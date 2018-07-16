@@ -1,5 +1,6 @@
 	<?php
 		require_once "./models/AnalisisResultado.php";
+		require_once "./models/AnalisisMuestra.php";
 		require_once "./models/AnalisisTipo.php";
 		require_once "./models/Empleado.php";
 
@@ -82,11 +83,16 @@
 			}
             
 			public function crudIngreso() {
+                $analisisMuestra = new AnalisisMuestra();
+                $analisMueSinResul = $analisisMuestra->muestrasSinResultados();
+                //
 	    		$analisisTipos = new AnalisisTipo();
 				$tipos = $analisisTipos->buscarTodas();
+                //
 				$empleado = new Empleado();
 				$emplRuts = $empleado->setCategoria("T");
 				$emplRuts = $empleado->buscarXCategoria();
+                //
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_analisisResultado_new.php';
 				include "views/sections/pie.php";

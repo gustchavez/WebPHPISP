@@ -9,7 +9,12 @@
 								<input type="text" name="fecha" placeholder="Ingrese Fecha" />
 								<input type="text" name="ppm" placeholder="Ingrese PPM" />
 								<input type="text" name="estado" placeholder="Ingrese Estado" />
-								<input type="text" name="analisisMuestra" placeholder="Ingrese Analisis de Muestra" />
+                                <select name="analisisMuestra">
+									<?php foreach ($analisMueSinResul as $item) {?>
+						              <option value='<?php echo $item->getId(); ?>'><?php echo $item->getId(); ?></option>
+						            <?php } ?>
+	            				</select>
+                                
 								<select name="analisisTipo">
 									<?php foreach ($tipos as $tipo) {?>
 						              <option value='<?php echo $tipo->getId(); ?>'><?php echo $tipo->getNombre(); ?></option>
