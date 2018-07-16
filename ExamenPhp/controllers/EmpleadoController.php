@@ -68,6 +68,12 @@
 				include "views/sections/pie.php";
 			}
             
+            public function crearDDLXCategoria($categoria) {
+				$this->empleado->setCategoria($categoria);
+				$empleados = $this->empleado->buscarXCategoria();
+				include 'views/ddl_empleados.php';
+			}
+            
 			public function crudIngreso() {
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_empleado_new.php';

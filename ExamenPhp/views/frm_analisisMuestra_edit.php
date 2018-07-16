@@ -8,7 +8,7 @@
 		</tr>
 		<tr>
 			<td>Fecha Recepcion</td>
-			<td><input type="text" name="fechaRecepcion" value="<?php echo $analisisMuestra->getFechaRecepcion(); ?>"/></td>
+			<td><input type="date" name="fechaRecepcion" value="<?php echo $analisisMuestra->getFechaRecepcion(); ?>"/></td>
 		</tr>
 		<tr>
 			<td>Temperatura</td>

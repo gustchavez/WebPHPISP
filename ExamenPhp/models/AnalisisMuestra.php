@@ -2,115 +2,115 @@
 require_once "DB.php";
 
 class AnalisisMuestra
-{
+    {
 
-    private $id;
+        private $id;
 
-    private $fechaRecepcion;
+        private $fechaRecepcion;
 
-    private $temperatura;
+        private $temperatura;
 
-    private $cantidad;
+        private $cantidad;
 
-    private $empleadoRut;
+        private $empleadoRut;
 
-    private $particularCodigo;
+        private $particularCodigo;
 
-    private $empresaCodigo;
+        private $empresaCodigo;
 
-    public function __construct($id=null, $fechaRecepcion=null, $temperatura=null, $cantidad=null, $empleadoRut=null, $particularCodigo=null, $empresaCodigo=null)
-        {  
-            $this->id    = $id;
-            $this->fechaRecepcion       = $fechaRecepcion;
-            $this->temperatura  = $temperatura;
-            $this->cantidad    = $cantidad;
-            $this->empleadoRut = $empleadoRut;
-            $this->particularCodigo     = $particularCodigo;
-            $this->empresaCodigo     = $empresaCodigo;
+        public function __construct($id=null, $fechaRecepcion=null, $temperatura=null, $cantidad=null, $empleadoRut=null, $particularCodigo=null, $empresaCodigo=null)
+            {  
+                $this->id    = $id;
+                $this->fechaRecepcion       = $fechaRecepcion;
+                $this->temperatura  = $temperatura;
+                $this->cantidad    = $cantidad;
+                $this->empleadoRut = $empleadoRut;
+                $this->particularCodigo     = $particularCodigo;
+                $this->empresaCodigo     = $empresaCodigo;
+            }
+
+
+        public function setId($id)
+        {
+            $this->id = $id;
+
+            return $this;
+        }
+        
+        public function getId()
+        {
+            return $this->id;
         }
 
+        public function setFechaRecepcion($fechaRecepcion)
+        {
+            $this->fechaRecepcion = $fechaRecepcion;
 
-    public function setId($id)
-    {
-        $this->id = $id;
+            return $this;
+        }
 
-        return $this;
-    }
-    
-    public function getId()
-    {
-        return $this->id;
-    }
+        public function getFechaRecepcion()
+        {
+            return $this->fechaRecepcion;
+        }
 
-    public function setFechaRecepcion($fechaRecepcion)
-    {
-        $this->fechaRecepcion = $fechaRecepcion;
+        public function setTemperatura($temperatura)
+        {
+            $this->temperatura = $temperatura;
 
-        return $this;
-    }
+            return $this;
+        }
 
-    public function getFechaRecepcion()
-    {
-        return $this->fechaRecepcion;
-    }
+        public function getTemperatura()
+        {
+            return $this->temperatura;
+        }
 
-    public function setTemperatura($temperatura)
-    {
-        $this->temperatura = $temperatura;
+        public function setCantidad($cantidad)
+        {
+            $this->cantidad = $cantidad;
 
-        return $this;
-    }
+            return $this;
+        }
 
-    public function getTemperatura()
-    {
-        return $this->temperatura;
-    }
+        public function getCantidad()
+        {
+            return $this->cantidad;
+        }
 
-    public function setCantidad($cantidad)
-    {
-        $this->cantidad = $cantidad;
+        public function setEmpleadoRut($empleadoRut = null)
+        {
+            $this->empleadoRut = $empleadoRut;
 
-        return $this;
-    }
+            return $this;
+        }
 
-    public function getCantidad()
-    {
-        return $this->cantidad;
-    }
+        public function getEmpleadoRut()
+        {
+            return $this->empleadoRut;
+        }
+        public function setParticularCodigo($particularCodigo = null)
+        {
+            $this->particularCodigo = $particularCodigo;
 
-    public function setEmpleadoRut($empleadoRut = null)
-    {
-        $this->empleadoRut = $empleadoRut;
+            return $this;
+        }
+        public function getParticularCodigo()
+        {
+            return $this->particularCodigo;
+        }
+        public function setEmpresaCodigo($empresaCodigo = null)
+        {
+            $this->empresaCodigo = $empresaCodigo;
 
-        return $this;
-    }
+            return $this;
+        }
+        public function getEmpresaCodigo()
+        {
+            return $this->empresaCodigo;
+        }
 
-    public function getEmpleadoRut()
-    {
-        return $this->empleadoRut;
-    }
-    public function setParticularCodigo($particularCodigo = null)
-    {
-        $this->particularCodigo = $particularCodigo;
-
-        return $this;
-    }
-    public function getParticularCodigo()
-    {
-        return $this->particularCodigo;
-    }
-    public function setEmpresaCodigo($empresaCodigo = null)
-    {
-        $this->empresaCodigo = $empresaCodigo;
-
-        return $this;
-    }
-    public function getEmpresaCodigo()
-    {
-        return $this->empresaCodigo;
-    }
-
-    public function buscarTodas(){
+        public function buscarTodas(){
             $db = new DB();
             $query = "SELECT id, fecha_recepcion , temperatura, cantidad, empleado_rut , particular_codigo , empresa_codigo  FROM analisis_muestra";
             $sentencia = $db->getConexion()->prepare($query);
@@ -122,24 +122,24 @@ class AnalisisMuestra
             return $AnalisisMuestras;
         }
         
-        public function crear($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
+        public function crear(){
             $db = new DB();
-            $query = "INSERT INTO analisis_muestra (fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo) VALUES ('$fechaRecepcion', '$temperatura', '$cantidad', '$empleadoRut', '$particularCodigo', '$empresaCodigo')";
+            $query = "INSERT INTO analisis_muestra (fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo) VALUES ( STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), $this->temperatura, $this->cantidad, '$this->empleadoRut', $this->particularCodigo, $this->empresaCodigo)";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
         
-        public function editar($id, $fechaRecepcion, $temperatura, $cantidad, $empleadoRut, $particularCodigo, $empresaCodigo){
+        public function editar(){
             $db = new DB();
-            $query = "UPDATE analisis_muestra SET fecha_recepcion = '$fechaRecepcion', temperatura = '$temperatura', cantidad = '$cantidad', empleado_rut = '$empleadoRut', particular_codigo = '$particularCodigo',empresa_codigo = '$empresaCodigo' WHERE id = $id";
+            $query = "UPDATE analisis_muestra SET fecha_recepcion = STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), temperatura = $this->temperatura, cantidad = $this->cantidad, empleado_rut = '$this->empleadoRut', particular_codigo = $particularCodigo, empresa_codigo = $this->empresaCodigo WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
-        public function eliminar($id){
+        public function eliminar(){
             $db = new DB();
-            $query = "DELETE FROM analisis_muestra WHERE id = $id";
+            $query = "DELETE FROM analisis_muestra WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -164,6 +164,7 @@ class AnalisisMuestra
             }
             return $AnalisisMuestra;
         } 
+        
         public function muestrasSinResultados()
         {
             $db = new DB();
@@ -176,4 +177,5 @@ class AnalisisMuestra
             }
             return $AnalisisMuestras;
         }
-}
+    }
+?>

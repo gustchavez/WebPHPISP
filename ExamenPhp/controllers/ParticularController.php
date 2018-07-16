@@ -63,6 +63,11 @@
 				include "views/sections/pie.php";
 			}
             
+            public function crearDDL() {
+				$particulares = $this->particular->buscarTodas();
+				include 'views/ddl_particulares.php';
+			}
+            
 			public function crudIngreso() {
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_particular_new.php';

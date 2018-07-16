@@ -61,6 +61,11 @@
 				include "views/sections/pie.php";
 			}
             
+            public function crearDDL() {
+				$empresas = $this->empresa->buscarTodas();
+				include 'views/ddl_empresas.php';
+			}
+            
 			public function crudIngreso() {
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_empresa_new.php';
