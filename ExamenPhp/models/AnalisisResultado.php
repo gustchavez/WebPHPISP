@@ -2,120 +2,144 @@
 require_once "DB.php";
 
 class AnalisisResultado
-{
-    
-    private $id;
-
-    private $fecha;
-
-    private $ppm;
-
-    private $estado;
-
-    private $analisisMuestra;
-
-    private $analisisTipo;
-
-    private $empleadoRut;
-
-    public function __construct($id=null, $fecha=null, $ppm=null, $estado=null, $analisisMuestra=null, $analisisTipo=null, $empleadoRut=null)
-    {  
-        $this->id    = $id;
-        $this->fecha       = $fecha;
-        $this->ppm  = $ppm;
-        $this->estado    = $estado;
-        $this->analisisMuestra = $analisisMuestra;
-        $this->analisisTipo     = $analisisTipo;
-        $this->empleadoRut     = $empleadoRut;
-    }
-
-    public function setId($id)
     {
-        $this->id = $id;
+        
+        private $id;
 
-        return $this;
-    }
+        private $fecha;
 
-    public function getId()
-    {
-        return $this->id;
-    }
+        private $ppm;
 
-    public function setFecha($fecha)
-    {
-        $this->fecha = $fecha;
+        private $estado;
 
-        return $this;
-    }
+        private $analisisMuestra;
 
-    public function getFecha()
-    {
-        return $this->fecha;
-    }
+        private $analisisTipo;
 
-    public function setPpm($ppm)
-    {
-        $this->ppm = $ppm;
+        private $empleadoRut;
 
-        return $this;
-    }
+        public function __construct($id=null, $fecha=null, $ppm=null, $estado=null, $analisisMuestra=null, $analisisTipo=null, $empleadoRut=null)
+        {  
+            $this->id    = $id;
+            $this->fecha       = $fecha;
+            $this->ppm  = $ppm;
+            $this->estado    = $estado;
+            $this->analisisMuestra = $analisisMuestra;
+            $this->analisisTipo     = $analisisTipo;
+            $this->empleadoRut     = $empleadoRut;
+        }
 
-    public function getPpm()
-    {
-        return $this->ppm;
-    }
+        public function setId($id)
+        {
+            $this->id = $id;
 
-    public function setEstado($estado)
-    {
-        $this->estado = $estado;
+            return $this;
+        }
 
-        return $this;
-    }
+        public function getId()
+        {
+            return $this->id;
+        }
 
-    public function getEstado()
-    {
-        return $this->estado;
-    }
+        public function setFecha($fecha)
+        {
+            $this->fecha = $fecha;
 
-    public function setAnalisisMuestra($analisisMuestra = null)
-    {
-        $this->analisisMuestra = $analisisMuestra;
+            return $this;
+        }
 
-        return $this;
-    }
+        public function getFecha()
+        {
+            return $this->fecha;
+        }
 
-    public function getAnalisisMuestra()
-    {
-        return $this->analisisMuestra;
-    }
+        public function setPpm($ppm)
+        {
+            $this->ppm = $ppm;
 
-    public function setAnalisisTipo($analisisTipo = null)
-    {
-        $this->analisisTipo = $analisisTipo;
+            return $this;
+        }
 
-        return $this;
-    }
+        public function getPpm()
+        {
+            return $this->ppm;
+        }
 
-    public function getAnalisisTipo()
-    {
-        return $this->analisisTipo;
-    }
+        public function setEstado($estado)
+        {
+            $this->estado = $estado;
 
-    public function setEmpleadoRut($empleadoRut = null)
-    {
-        $this->empleadoRut = $empleadoRut;
+            return $this;
+        }
 
-        return $this;
-    }
+        public function getEstado()
+        {
+            return $this->estado;
+        }
 
-    public function getEmpleadoRut()
-    {
-        return $this->empleadoRut;
-    }
+        public function setAnalisisMuestra($analisisMuestra = null)
+        {
+            $this->analisisMuestra = $analisisMuestra;
 
-    public function buscarTodas(){
+            return $this;
+        }
+
+        public function getAnalisisMuestra()
+        {
+            return $this->analisisMuestra;
+        }
+
+        public function setAnalisisTipo($analisisTipo = null)
+        {
+            $this->analisisTipo = $analisisTipo;
+
+            return $this;
+        }
+
+        public function getAnalisisTipo()
+        {
+            return $this->analisisTipo;
+        }
+
+        public function setEmpleadoRut($empleadoRut = null)
+        {
+            $this->empleadoRut = $empleadoRut;
+
+            return $this;
+        }
+
+        public function getEmpleadoRut()
+        {
+            return $this->empleadoRut;
+        }
+
+        public function buscarTodas(){
             $db = new DB();
             $query = "SELECT id, fecha, ppm, estado, analisis_muestra_id , analisis_tipo_id , empleado_rut  FROM analisis_resultado";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
+            }
+            return $AnalisisResultados;
+        }
+        
+        public function buscarXParticular($particularCodigo){
+            $db = new DB();
+            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.particular_codigo = $particularCodigo";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            foreach($rs as $fila){
+                $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
+            }
+            return $AnalisisResultados;
+        }
+        
+        public function buscarXEmpresa($empresaCodigo){
+            $db = new DB();
+            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.empresa_codigo = $empresaCodigo";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
@@ -181,4 +205,5 @@ class AnalisisResultado
             }
             return $json;
         }
-}
+    }
+?>

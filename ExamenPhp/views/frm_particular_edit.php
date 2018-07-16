@@ -33,5 +33,4 @@
 			</td>
 		</tr>
 	</table>
-	<input type="hidden" name="op" value="editarParticular">
 </form>

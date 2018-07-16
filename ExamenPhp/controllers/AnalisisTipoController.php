@@ -67,8 +67,7 @@
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_analisisTipo_edit.php';
 				include "views/sections/pie.php";
-			}
-            
+			}            
 		}
 	?>
 

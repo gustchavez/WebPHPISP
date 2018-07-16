@@ -65,6 +65,20 @@
 				include "views/sections/pie.php";
 			}
             
+			public function buscarXParticular() {
+				$analisisResultados = $this->analisisResultado->buscarXParticular($_REQUEST['codigo']);
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_analisisResultado.php';
+				include "views/sections/pie.php";
+			}
+            
+			public function buscarXEmpresa() {
+				$analisisResultados = $this->analisisResultado->buscarXEmpresa($_REQUEST['codigo']);
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_analisisResultado.php';
+				include "views/sections/pie.php";
+			}
+            
 			public function crudIngreso() {
 	    		include "views/sections/cabecera.php";
 				include 'views/frm_analisisMuestra_new.php';
