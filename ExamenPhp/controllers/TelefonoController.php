@@ -47,25 +47,25 @@
 			public function buscarTodas() {
 				$this->telefono->setParticularCodigo($_REQUEST['codigo']);  
 				$telefonos = $this->telefono->buscarXParticularCodigo();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_telefonos.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudIngreso() {
 				$this->telefono->setParticularCodigo($_REQUEST['codigo']);                 
 				$telefono = $this->telefono;
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_telefono_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->telefono->setId($_REQUEST['id']);
 				$telefono = $this->telefono->buscarXId();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_telefono_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

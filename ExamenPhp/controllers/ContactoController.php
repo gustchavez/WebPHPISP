@@ -52,25 +52,25 @@
 			public function buscarTodas() {
 				$this->contacto->setEmpresaCodigo($_REQUEST['codigo']);
 				$contactos = $this->contacto->buscarXEmpresaCodigo();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_contactos.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudIngreso() {
 				$this->contacto->setEmpresaCodigo($_REQUEST['codigo']);               
 				$contacto = $this->contacto;
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_contacto_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->contacto->setRut($_REQUEST['rut']);  
 				$contacto = $this->contacto->buscarXRut();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_contacto_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

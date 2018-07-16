@@ -50,23 +50,23 @@
                                     
 			public function buscarTodas() {
 				$analisisTipos = $this->analisisTipo->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisTipos.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudIngreso() {
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisTipo_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->analisisTipo->setId($_REQUEST['id']);
 				$analisisTipo = $this->analisisTipo->buscarXId();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisTipo_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}            
 		}
 	?>

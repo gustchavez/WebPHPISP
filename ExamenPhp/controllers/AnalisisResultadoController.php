@@ -62,23 +62,23 @@
                                     
 			public function buscarTodas() {
 				$analisisResultados = $this->analisisResultado->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
                
 			public function buscarXParticular() {
 				$analisisResultados = $this->analisisResultado->buscarXParticular($_REQUEST['codigo']);
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}   
             
 			public function buscarXEmpresa() {
 				$analisisResultados = $this->analisisResultado->buscarXEmpresa($_REQUEST['codigo']);
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudIngreso() {
@@ -87,25 +87,25 @@
 				$empleado = new Empleado();
 				$emplRuts = $empleado->setCategoria("T");
 				$emplRuts = $empleado->buscarXCategoria();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisResultado_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->analisisResultado->setId($_REQUEST['id']);  
 				$analisisResultado = $this->analisisResultado->buscarXId();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisResultado_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
 
 			public function graficoResultado() {
 				$this->analisisResultado->setId($_REQUEST['id']);  
 				$result = $this->analisisResultado->graficoXId();				
-				include "views/sections/cabecera.php";
+				include "views/sections/clienteHead.php";
 				include 'views/graficoResultadoMuestra.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

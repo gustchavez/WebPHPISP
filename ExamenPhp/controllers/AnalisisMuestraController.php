@@ -60,46 +60,46 @@
                                     
 			public function buscarTodas() {
 				$analisisMuestras = $this->analisisMuestra->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisMuestra.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function buscarXParticular() {
 				$analisisResultados = $this->analisisResultado->buscarXParticular($_REQUEST['codigo']);
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function buscarXEmpresa() {
 				$analisisResultados = $this->analisisResultado->buscarXEmpresa($_REQUEST['codigo']);
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudIngreso() {
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisMuestra_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->analisisMuestra->setId($_REQUEST['id']);  
 				$analisisMuestra = $this->analisisMuestra->buscarXId();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisMuestra_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
 
 
             
             public function buscarMuestrasPendienteResultados() {
 				$analisisMuestras = $this->analisisMuestra->muestrasSinResultados();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisMuestra.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
 		}
 	?>

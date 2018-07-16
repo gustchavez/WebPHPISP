@@ -55,17 +55,17 @@
                                     
 			public function buscarTodas() {
 				$empleados = $this->empleado->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_empleados.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
                          
 			public function buscarXCategoria() {
 				$this->empleado->setCategoria($_REQUEST['categoria']);
 				$empleados = $this->empleado->buscarXCategoria();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_empleados.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
             public function crearDDLXCategoria($categoria) {
@@ -75,17 +75,17 @@
 			}
             
 			public function crudIngreso() {
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empleado_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->empleado->setRut($_REQUEST['rut']);
 				$empleado = $this->empleado->buscarXRut();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empleado_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

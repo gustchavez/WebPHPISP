@@ -56,9 +56,9 @@
                                     
 			public function buscarTodas() {
 				$empresas = $this->empresa->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_empresas.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
             public function crearDDL() {
@@ -67,17 +67,17 @@
 			}
             
 			public function crudIngreso() {
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empresa_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->empresa->setCodigo($_REQUEST['codigo']);
 				$empresa = $this->empresa->buscarXCodigo();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empresa_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

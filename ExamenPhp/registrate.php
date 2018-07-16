@@ -50,12 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 		));
-		echo '<script language="javascript">alert("Ingreso Exitoso");</script>'; 
 
 		header('Location: login.php');
 	}
 }
 
-require 'sections/registrate.view.php';
+require 'views/sections/registrate.view.php';
 
 ?>

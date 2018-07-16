@@ -58,9 +58,9 @@
                                     
 			public function buscarTodas() {
 				$particulares = $this->particular->buscarTodas();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/listado_particulares.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
             public function crearDDL() {
@@ -69,17 +69,17 @@
 			}
             
 			public function crudIngreso() {
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_particular_new.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 			public function crudEditar() {
 				$this->particular->setCodigo($_REQUEST['codigo']);
 				$particular = $this->particular->buscarXCodigo();
-	    		include "views/sections/cabecera.php";
+	    		include "views/sections/clienteHead.php";
 				include 'views/frm_particular_edit.php';
-				include "views/sections/pie.php";
+				include "views/sections/footer.php";
 			}
             
 		}

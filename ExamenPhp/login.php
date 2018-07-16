@@ -34,6 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 }
 
-require 'sections/login.view.php';
+require 'views/sections/login.view.php';
 
 ?>
