@@ -6,7 +6,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Tipo', 'Tipos Detecciones'],
+          ['Resultados PPM', 'Tipos Análisis'],
 
           <?php for ($i=0; $i < count($result) ; $i++) { ?>
 
@@ -20,8 +20,8 @@
 
         var options = {
           chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            title: 'Resultados de la Muestra',
+            subtitle: 'Instituto de Salud Pública de Chile (ISP) ',
           },
           bars: 'vertical' // Required for Material Bar Charts.
         };
