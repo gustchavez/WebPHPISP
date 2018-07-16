@@ -177,5 +177,11 @@ class AnalisisMuestra
             }
             return $AnalisisMuestras;
         }
+<<<<<<< HEAD
     }
 ?>
+=======
+
+        
+}
+>>>>>>> 1bb6dd65acc0d79490fb9f11329bdec5b3798b4e
