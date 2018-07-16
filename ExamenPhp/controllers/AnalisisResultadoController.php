@@ -81,9 +81,8 @@
 
 			public function graficoResultado() {
 				$this->analisisResultado->setId($_REQUEST['id']);  
-				$analisisResultado = $this->analisisResultado->graficoXId();
-				//echo json_encode($analisisResultado);
-	    		include "views/sections/cabecera.php";
+				$result = $this->analisisResultado->graficoXId();				
+				include "views/sections/cabecera.php";
 				include 'views/graficoResultadoMuestra.php';
 				include "views/sections/pie.php";
 			}

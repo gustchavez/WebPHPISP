@@ -179,6 +179,6 @@ class AnalisisResultado
             foreach($rs as $fila){
                 $json[]= [(string)$fila["nombre"], (int)$fila["ppm"]];
             }
-            return json_encode($json);
+            return $json;
         }
 }
