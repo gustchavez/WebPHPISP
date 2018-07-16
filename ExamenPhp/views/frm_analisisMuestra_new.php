@@ -6,9 +6,9 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="date" name="fechaRecepcion"/>
-								<input type="text" name="temperatura"/>
-								<input type="text" name="cantidad"/>
+								<input type="date" name="fechaRecepcion" placeholder="Ingrese Fecha de Recepcion" />
+								<input type="text" name="temperatura" placeholder="Ingrese la Temperatura" />
+								<input type="text" name="cantidad" placeholder="Ingrese Cantidad" />
 								<select name="empleadoRut">
 				                    <?php  
 				                        require_once "./controllers/EmpleadoController.php";

@@ -6,9 +6,9 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="text" name="rut"/>
-								<input type="text" name="nombre" />
-								<input type="text" name="password" />
+								<input type="text" name="rut" placeholder="Ingrese Rut" />
+								<input type="text" name="nombre" placeholder="Ingrese Nombres" />
+								<input type="text" name="password" placeholder="Ingrese Password" />
 
 								<select name="categoria">
 				                  <option value="A">Administrador</option>

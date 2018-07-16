@@ -6,11 +6,11 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="text" name="rut"/>
-								<input type="text" name="password" />
-								<input type="text" name="nombre" />
-								<input type="text" name="direccion" />
-								<input type="text" name="email" />
+								<input type="text" name="rut" placeholder="Ingrese Rut" />
+								<input type="text" name="password" placeholder="Ingrese Password" />
+								<input type="text" name="nombre" placeholder="Ingrese Nombre" />
+								<input type="text" name="direccion" placeholder="Ingrese Direccion" />
+								<input type="text" name="email" placeholder="Ingrese Email" />
 
 						
 

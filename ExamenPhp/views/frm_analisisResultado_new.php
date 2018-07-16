@@ -6,10 +6,10 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="text" name="fecha"/>
-								<input type="text" name="ppm"/>
-								<input type="text" name="estado"/>
-								<input type="text" name="analisisMuestra"/>
+								<input type="text" name="fecha" placeholder="Ingrese Fecha" />
+								<input type="text" name="ppm" placeholder="Ingrese PPM" />
+								<input type="text" name="estado" placeholder="Ingrese Estado" />
+								<input type="text" name="analisisMuestra" placeholder="Ingrese Analisis de Muestra" />
 								<select name="analisisTipo">
 									<?php foreach ($tipos as $tipo) {?>
 						              <option value='<?php echo $tipo->getId(); ?>'><?php echo $tipo->getNombre(); ?></option>

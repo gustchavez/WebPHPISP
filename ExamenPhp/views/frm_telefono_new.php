@@ -6,7 +6,7 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="text" name="numero"/>
+								<input type="text" name="numero" placeholder="Ingrese Numero Telefonico" />
 								<input type="text" name="particularCodigo" value="<?php echo $telefono->getParticularCodigo(); ?>" readonly/>
 
 

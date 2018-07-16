@@ -6,8 +6,7 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="text" name="nombre"/>
-								<input type="submit" value="Crear"/>
+								<input type="text" name="nombre" placeholder="Ingrese Nombre" />
 
 
 								<div class="d-flex justify-content-end">

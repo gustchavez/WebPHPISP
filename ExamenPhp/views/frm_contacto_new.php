@@ -6,10 +6,10 @@
 
 							<form action="?accion=editar" method="post">
 							
-								<input type="text" name="rut"/>
-								<input type="text" name="nombre"/>
-								<input type="text" name="email"/>
-								<input type="text" name="telefono"/>
+								<input type="text" name="rut" placeholder="Ingrese Rut" />
+								<input type="text" name="nombre" placeholder="Ingrese Nombre" />
+								<input type="text" name="email" placeholder="Ingrese Email" />
+								<input type="text" name="telefono" placeholder="Ingrese Telefono" />
 								<input type="text" name="empresaCodigo" value="<?php echo $contacto->getEmpresaCodigo(); ?>" readonly/>
 
 								<div class="d-flex justify-content-end">
