@@ -11,23 +11,23 @@
 			<td><input type="text" name="fecha" value="<?php echo $analisisResultado->getFecha(); ?>"/></td>
 		</tr>
 		<tr>
-			<td>Temperatura</td>
+			<td>Ppm</td>
 			<td><input type="text" name="ppm" value="<?php echo $analisisResultado->getPpm(); ?>"/></td>
 		</tr>
 		<tr>
-			<td>Cantidad</td>
+			<td>Estado</td>
 			<td><input type="text" name="estado" value="<?php echo $analisisResultado->getEstado(); ?>"/></td>
 		</tr>
 		<tr>
-			<td>Empleado Rut</td>
+			<td>Analisis Muestra</td>
 			<td><input type="text" name="analisisMuestra" value="<?php echo $analisisResultado->getAnalisisMuestra(); ?>"/></td>
 		</tr>
 		<tr>
-			<td>Particular Codigo</td>
+			<td>Analisis Tipo</td>
 			<td><input type="text" name="analisisTipo" value="<?php echo $analisisResultado->getAnalisisTipo(); ?>"/></td>
 		</tr>
 		<tr>
-			<td>Empresa Codigo</td>
+			<td>Empleado Rut</td>
 			<td><input type="text" name="empleadoRut" value="<?php echo $analisisResultado->getEmpleadoRut(); ?>"/></td>
 		</tr>
 		<tr>
