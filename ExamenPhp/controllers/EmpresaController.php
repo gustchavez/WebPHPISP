@@ -41,6 +41,22 @@
 				}
 			}
             
+			public function editarPerfil() {
+				$this->empresa->setCodigo($_REQUEST['codigo']);  
+				$this->empresa->setRut($_REQUEST['rut']);    
+				$this->empresa->setNombre($_REQUEST['nombre']);
+				$this->empresa->setPassword($_REQUEST['password']);
+				$this->empresa->setDireccion($_REQUEST['direccion']);
+
+				if($this->empresa->editar()){
+                    header('Location: manejadorEmpresa.php?accion=crudEditarPerfil&codigo='.$codigo);
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+				}
+				else{
+					echo '<script language="javascript">alert("Error al modificar");</script>';
+				}
+			}
+            
 			public function eliminar() {
 				$this->empresa->setCodigo($_REQUEST['codigo']);
 
@@ -77,6 +93,14 @@
 				$empresa = $this->empresa->buscarXCodigo();
 	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empresa_edit.php';
+				include "views/sections/footer.php";
+			}
+            
+			public function crudEditarPerfil() {
+				$this->empresa->setCodigo($_REQUEST['codigo']);
+				$empresa = $this->empresa->buscarXCodigo();
+	    		include "views/sections/clienteHead.php";
+				include 'views/frm_empresa_edit_perfil.php';
 				include "views/sections/footer.php";
 			}
             
