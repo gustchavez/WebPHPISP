@@ -4,11 +4,15 @@
 						<div class="widget nueva_entrada">
 							<h3 class="titulo">Crear Analisis Resultado</h3>
 
-							<form action="?accion=crear" method="post">
-							
-								<input type="text" name="fecha" placeholder="Ingrese Fecha" />
-								<input type="text" name="ppm" placeholder="Ingrese PPM" />
-								<input type="text" name="estado" placeholder="Ingrese Estado" />
+							<form action="?accion=crear" method="post">							
+								<input type="date" name="fecha" placeholder="Ingrese Fecha" required />
+								<input type="number" name="ppm" placeholder="Ingrese PPM" required />
+                                
+                                <select name="estado">
+						              <option value='0'>En Curso</option>
+                                      <option value='1'>Finalizado</option>
+	            				</select>
+                                
                                 <select name="analisisMuestra">
 									<?php foreach ($analisMueSinResul as $item) {?>
 						              <option value='<?php echo $item->getId(); ?>'><?php echo $item->getId(); ?></option>
@@ -20,13 +24,9 @@
 						              <option value='<?php echo $tipo->getId(); ?>'><?php echo $tipo->getNombre(); ?></option>
 						            <?php } ?>
 	            				</select>
-	            				<select name="empleadoRut">
-									<?php foreach ($emplRuts as $emplRut) {?>
-						              <option value='<?php echo $emplRut->getRut(); ?>'><?php echo $emplRut->getNombre(); ?></option>
-						            <?php } ?>
-	            				</select>
-
-
+                                
+                                <input type="text" name="empleadoRut" value="<?php echo $analisisResultado->getEmpleadoRut(); ?>" hidden />
+                                
 								<div class="d-flex justify-content-end">
 									<button><i class="icon icon-edit"></i> Crear </button>
 								</div>

@@ -62,6 +62,8 @@
 			}
                                     
 			public function buscarTodas() {
+				$this->analisisResultado->setEmpleadoRut($_REQUEST['rut']);
+				$ar = $this->analisisResultado;
 				$analisisResultados = $this->analisisResultado->buscarTodas();
 	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
@@ -69,6 +71,7 @@
 			}
                
 			public function buscarXParticular() {
+				$this->analisisResultado->setEmpleadoRut($_REQUEST['rut']); 
 				$analisisResultados = $this->analisisResultado->buscarXParticular($_REQUEST['codigo']);
 	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
@@ -97,15 +100,19 @@
 			}
             
 			public function crudIngreso() {
+				$this->analisisResultado->setEmpleadoRut($_REQUEST['rut']);
+				$analisisResultado = $this->analisisResultado;
+                //
                 $analisisMuestra = new AnalisisMuestra();
                 $analisMueSinResul = $analisisMuestra->muestrasSinResultados();
                 //
 	    		$analisisTipos = new AnalisisTipo();
 				$tipos = $analisisTipos->buscarTodas();
                 //
-				$empleado = new Empleado();
-				$emplRuts = $empleado->setCategoria("T");
-				$emplRuts = $empleado->buscarXCategoria();
+				//$empleado = new Empleado();
+				//$emplRuts = $empleado->setCategoria("T");
+				//$emplRuts = $empleado->buscarXCategoria();
+                
 	    		include "views/sections/clienteHead.php";
                 //
 	    		include "views/sections/cabecera.php";

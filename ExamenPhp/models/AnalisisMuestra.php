@@ -131,6 +131,22 @@ class AnalisisMuestra
             return $respuesta;
         }
         
+        public function crearE(){
+            $db = new DB();
+            $query = "INSERT INTO analisis_muestra (fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo) VALUES ( STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), $this->temperatura, $this->cantidad, '$this->empleadoRut', NULL, $this->empresaCodigo)";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        
+        public function crearP(){
+            $db = new DB();
+            $query = "INSERT INTO analisis_muestra (fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo) VALUES ( STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), $this->temperatura, $this->cantidad, '$this->empleadoRut', $this->particularCodigo, NULL)";
+            $sentencia = $db->getConexion()->prepare($query);
+            $respuesta = $sentencia->execute();
+            return $respuesta;
+        }
+        
         public function editar(){
             $db = new DB();
             $query = "UPDATE analisis_muestra SET fecha_recepcion = STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), temperatura = $this->temperatura, cantidad = $this->cantidad, empleado_rut = '$this->empleadoRut', particular_codigo = $this->particularCodigo, empresa_codigo = $this->empresaCodigo WHERE id = $this->id";

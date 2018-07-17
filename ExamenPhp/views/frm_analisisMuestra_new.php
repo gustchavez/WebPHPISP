@@ -6,16 +6,11 @@
 
 							<form action="?accion=crear" method="post">
 							
-								<input type="date" name="fechaRecepcion" placeholder="Ingrese Fecha de Recepcion" />
-								<input type="text" name="temperatura" placeholder="Ingrese la Temperatura" />
-								<input type="text" name="cantidad" placeholder="Ingrese Cantidad" />
-								<select name="empleadoRut">
-				                    <?php  
-				                        require_once "./controllers/EmpleadoController.php";
-				                        $empleadoController = new EmpleadoController(); 
-				                        $empleadoController->crearDDLXCategoria('R');
-				                    ?>
-				                </select>
+								<input type="date" name="fechaRecepcion" placeholder="Ingrese Fecha de Recepcion" required />
+								<input type="number" name="temperatura" placeholder="Ingrese la Temperatura" required />
+								<input type="number" name="cantidad" placeholder="Ingrese Cantidad" required />
+                                <input type="text" name="empleadoRut" value="<?php echo $analisisMuestra->getEmpleadoRut(); ?>" hidden />
+                                
 				                <select name="particularCodigo">
 							        <?php  
 										require_once "./controllers/ParticularController.php";

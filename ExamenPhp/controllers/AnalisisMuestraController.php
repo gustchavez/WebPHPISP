@@ -12,11 +12,55 @@
 				$this->analisisMuestra->setFechaRecepcion($_REQUEST['fechaRecepcion']);    
 				$this->analisisMuestra->setTemperatura($_REQUEST['temperatura']);    
 				$this->analisisMuestra->setCantidad($_REQUEST['cantidad']);    
-				$this->analisisMuestra->setEmpleadoRut($_REQUEST['empleadoRut']);    
-				$this->analisisMuestra->setParticularCodigo($_REQUEST['particularCodigo']);
-				$this->analisisMuestra->setEmpresaCodigo($_REQUEST['empresaCodigo']);
-
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['empleadoRut']); 
+                //
+                if(isset($_REQUEST['empresaCodigo'])){
+                    $this->analisisMuestra->setParticularCodigo($_REQUEST['particularCodigo']);
+                }else{
+                    $this->analisisMuestra->setParticularCodigo(null);
+                }
+                //
+				if(isset($_REQUEST['empresaCodigo'])){
+                    $this->analisisMuestra->setEmpresaCodigo($_REQUEST['empresaCodigo']);
+                }else{
+                    $this->analisisMuestra->setEmpresaCodigo(null);
+                }
+                //
 				if($this->analisisMuestra->crear()){
+					echo "analisisMuestra ingresado correctamente <br/>";
+					echo "<a href='./manejadorAnalisisMuestra.php'>Volver</a>";
+				}
+				else{
+					echo "No se pudo realizar la creación <br/>";
+					echo "<a href='./manejadorAnalisisMuestra.php'>Volver</a>";
+				}
+			}
+            
+			public function crearE() {   
+				$this->analisisMuestra->setFechaRecepcion($_REQUEST['fechaRecepcion']);    
+				$this->analisisMuestra->setTemperatura($_REQUEST['temperatura']);    
+				$this->analisisMuestra->setCantidad($_REQUEST['cantidad']);    
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['empleadoRut']); 
+				$this->analisisMuestra->setEmpresaCodigo($_REQUEST['empresaCodigo']);
+                //
+				if($this->analisisMuestra->crearE()){
+					echo "analisisMuestra ingresado correctamente <br/>";
+					echo "<a href='./manejadorAnalisisMuestra.php'>Volver</a>";
+				}
+				else{
+					echo "No se pudo realizar la creación <br/>";
+					echo "<a href='./manejadorAnalisisMuestra.php'>Volver</a>";
+				}
+			}
+            
+			public function crearP() {   
+				$this->analisisMuestra->setFechaRecepcion($_REQUEST['fechaRecepcion']);    
+				$this->analisisMuestra->setTemperatura($_REQUEST['temperatura']);    
+				$this->analisisMuestra->setCantidad($_REQUEST['cantidad']);    
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['empleadoRut']); 
+                $this->analisisMuestra->setParticularCodigo($_REQUEST['particularCodigo']);
+                //
+				if($this->analisisMuestra->crearP()){
 					echo "analisisMuestra ingresado correctamente <br/>";
 					echo "<a href='./manejadorAnalisisMuestra.php'>Volver</a>";
 				}
@@ -59,6 +103,8 @@
 			}
                                     
 			public function buscarTodas() {
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['rut']);
+				$am = $this->analisisMuestra;
 				$analisisMuestras = $this->analisisMuestra->buscarTodas();
 	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisMuestra.php';
@@ -82,8 +128,26 @@
 			}
             
 			public function crudIngreso() {
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['rut']);               
+				$analisisMuestra = $this->analisisMuestra;
 	    		include "views/sections/clienteHead.php";
 				include 'views/frm_analisisMuestra_new.php';
+				include "views/sections/footer.php";
+			}
+            
+			public function crudIngresoP() {
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['rut']);               
+				$analisisMuestra = $this->analisisMuestra;
+	    		include "views/sections/clienteHead.php";
+				include 'views/frm_analisisMuestra_new_P.php';
+				include "views/sections/footer.php";
+			}
+            
+			public function crudIngresoE() {
+				$this->analisisMuestra->setEmpleadoRut($_REQUEST['rut']);               
+				$analisisMuestra = $this->analisisMuestra;
+	    		include "views/sections/clienteHead.php";
+				include 'views/frm_analisisMuestra_new_E.php';
 				include "views/sections/footer.php";
 			}
             

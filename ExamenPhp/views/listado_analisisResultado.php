@@ -32,7 +32,7 @@
 									<?php } ?>
 								</table>
 								<br/>
-								<a href="?accion=crudIngreso">Nuevo Analisis</a>
+								<a href="?accion=crudIngreso&rut=<?php echo $ar->getEmpleadoRut();?>">Nuevo Analisis</a>
 
 
 						</div>

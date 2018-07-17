@@ -13,6 +13,7 @@
 										<td>Empleado Rut</td>
 										<td>Particular Codigo</td>
 										<td>Empresa Codigo</td>
+										<td>Acciones</td>
 									</tr>
 									<?php foreach ($analisisMuestras as $analisisMuestra){ ?>
 									<tr>
@@ -29,9 +30,8 @@
 									<?php } ?>
 								</table>
 								<br/>
-								<a href="?accion=crudIngreso">Nuevo Analisis</a>
-
-
+								<a href="?accion=crudIngresoP&rut=<?php echo $am->getEmpleadoRut();?>">Nuevo Analisis Particular</a>
+								<a href="?accion=crudIngresoE&rut=<?php echo $am->getEmpleadoRut();?>">Nuevo Analisis Empresa</a>
 						</div>
 					</div>
 

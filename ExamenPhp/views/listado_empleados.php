@@ -11,6 +11,8 @@
 										<td>Nombre</td>
 										<td>Password</td>
 										<td>Categoria</td>
+										<td>Ver Muestras</td>
+										<td>Ver Resultados</td>
 										<td>Acciones</td>
 									</tr>
 									<?php foreach ($empleados as $empleado){ ?>
@@ -25,7 +27,21 @@
 								                    } elseif ($empleado->getCategoria() == "T") {
 								                        echo "Tecnico Analista";
 								                    } else {
-								                             "Sin Categoria";
+								                        echo "Sin Categoria";
+								                    }
+								                    ?>
+								        </td>
+								        <td><?php   if ($empleado->getCategoria()       == "R") { ?>
+								                        <a href="manejadorAnalisisMuestra.php?accion=buscarTodas&rut=<?php echo $empleado->getRut();?>">Ver</a>
+								            <?php   } else {
+								                        echo "NA";
+								                    }
+								                    ?>
+								        </td>
+                                        <td><?php   if ($empleado->getCategoria()       == "T") { ?>
+								                        <a href="manejadorAnalisisResultado.php?accion=buscarTodas&rut=<?php echo $empleado->getRut();?>">Ver</a>
+								            <?php   } else {
+								                        echo "NA";
 								                    }
 								                    ?>
 								        </td>

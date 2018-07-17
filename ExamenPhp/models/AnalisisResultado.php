@@ -126,9 +126,9 @@ class AnalisisResultado
             return $AnalisisResultados;
         }
         
-        public function buscarXParticular($particularCodigo){
+        public function buscarXParticular(){
             $db = new DB();
-            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.particular_codigo = $particularCodigo";
+            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.particular_codigo = $this->particularCodigo";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
@@ -139,9 +139,9 @@ class AnalisisResultado
             return $AnalisisResultados;
         }
         
-        public function buscarXEmpresa($empresaCodigo){
+        public function buscarXEmpresa(){
             $db = new DB();
-            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.empresa_codigo = $empresaCodigo";
+            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.empresa_codigo = $this->empresaCodigo";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
@@ -152,24 +152,24 @@ class AnalisisResultado
             return $AnalisisResultados;
         }
         
-        public function crear($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
+        public function crear(){
             $db = new DB();
-            $query = "INSERT INTO analisis_resultado (fecha, ppm, estado, analisis_muestra_id, analisis_tipo_id, empleado_rut) VALUES ('$fecha', '$ppm', '$estado', '$analisisMuestra', '$analisisTipo', '$empleadoRut')";
+            $query = "INSERT INTO analisis_resultado (fecha, ppm, estado, analisis_muestra_id, analisis_tipo_id, empleado_rut) VALUES (STR_TO_DATE('$this->fecha', '%Y-%m-%d'), $this->ppm, $this->estado, $this->analisisMuestra, $this->analisisTipo, $this->empleadoRut)";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
         
-        public function editar($id, $fecha, $ppm, $estado, $analisisMuestra, $analisisTipo, $empleadoRut){
+        public function editar(){
             $db = new DB();
-            $query = "UPDATE analisis_resultado SET fecha = '$fecha', ppm = '$ppm', estado = '$estado', analisis_muestra_id = '$analisisMuestra', analisis_tipo_id = '$analisisTipo',empleado_rut = '$empleadoRut' WHERE id = $id";
+            $query = "UPDATE analisis_resultado SET fecha = STR_TO_DATE('$this->fecha', '%Y-%m-%d'), ppm = $this->ppm, estado = $this->estado, analisis_muestra_id = $this->analisisMuestra, analisis_tipo_id = $this->analisisTipo, empleado_rut = $this->empleadoRut WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
-        public function eliminar($id){
+        public function eliminar(){
             $db = new DB();
-            $query = "DELETE FROM analisis_resultado WHERE id = $id";
+            $query = "DELETE FROM analisis_resultado WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
