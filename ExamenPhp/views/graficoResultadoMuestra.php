@@ -49,7 +49,7 @@
                 <div class="comentario d-flex flex-wrap">
                   <div class="foto">                    
                     <img src="images/comp.jpg">
-                    <p style="text-align: justify;">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea accusantium, explicabo. Deleniti veritatis officiis similique suscipit officia quae tempora, modi quibusdam consectetur sint dignissimos aperiam quasi repellat aspernatur enim atque.</p>
+                    <p style="text-align: justify;"> Derechos reservados</p>
                   </div>        
                 </div>    
               </div>
