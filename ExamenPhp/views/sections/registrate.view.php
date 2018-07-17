@@ -14,17 +14,23 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="menu col-lg-9 col-md-12 col-sm-12">			
+			<div class="menu col-lg-7 col-md-12 col-sm-12">			
 							Instituto de Salud Pública
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="inicio.php" class="">Inicio</a>
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="registrate.php" class="">Registro</a>
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="login.php" class="">Ingreso</a>
+			</div>
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
+							<a href="loginEmpresa.php" class="">Empresa</a>
+			</div>
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
+							<a href="loginIntranet.php" class="">Intranet</a>
 			</div>
 		</div>
 	</div>

@@ -6,8 +6,8 @@
 	 initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	 <link href='https://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	 <link rel="stylesheet" href="css/bootstrap.min.css">
-	 <link rel="stylesheet" href="css/estilos.css">
+	 <link rel="stylesheet" href="../../WebPHPISP/views/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="../../WebPHPISP/views/css/estilos.css">
 
 	<title>Iniciar Sesión</title>
 </head>
@@ -15,17 +15,23 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="menu col-lg-9 col-md-12 col-sm-12">			
+			<div class="menu col-lg-7 col-md-12 col-sm-12">			
 							Instituto de Salud Pública
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="inicio.php" class="">Inicio</a>
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="registrate.php" class="">Registro</a>
 			</div>
-			<div class="menu col-lg-1 col-md-4 col-sm-4">			
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="login.php" class="">Ingreso</a>
+			</div>
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
+							<a href="loginEmpresa.php" class="">Empresa</a>
+			</div>
+			<div class="menu col-lg-1 col-md-2 col-sm-2">			
+							<a href="loginIntranet.php" class="">Intranet</a>
 			</div>
 		</div>
 	</div>
@@ -55,12 +61,12 @@
 
 		<p class="texto-registrate">
 			¿ Aun no tienes cuenta ?
-			<a href="registrate.php">Regístrate</a>
+			<a href="../../WebPHPISP/registrate.php">Regístrate</a>
 		</p>
 	</div>
 
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../../WebPHPISP/views/js/jquery-3.2.1.min.js"></script>
+	<script src="../../WebPHPISP/views/js/popper.min.js"></script>
+	<script src="../../WebPHPISP/views/js/bootstrap.min.js"></script>
 </body>
 </html>
