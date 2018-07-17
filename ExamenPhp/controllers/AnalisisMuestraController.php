@@ -103,5 +103,12 @@
 				include 'views/listado_analisisMuestra.php';
 				include "views/sections/footer.php";
 			}
+
+			public function lista_reporRecepcionXMuestra() {
+				$result = $this->analisisMuestra->reporRecepcionXMuestra();
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_reporRecepcionXMuestra.php';
+				include "views/sections/pie.php";
+			}
 		}
 	?>
