@@ -205,5 +205,18 @@ class AnalisisResultado
             }
             return $json;
         }
+
+        public function reporTecnicoXResultado(){
+            $db = new DB();
+            $query = "SELECT em.rut, em.nombre, em.categoria, ti.nombre as tipo , re.analisis_muestra_id,re.fecha , re.ppm, re.estado FROM empleado em JOIN analisis_resultado re on em.rut = re.empleado_rut JOIN analisis_tipo ti on re.analisis_tipo_id= ti.id WHERE em.categoria='T' ORDER BY re.fecha DESC";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            $lista = [];
+            foreach($rs as $fila){
+                $lista[] = [(string)$fila["rut"],(string)$fila["nombre"],(string)$fila["categoria"],(string)$fila["tipo"],(string)$fila["analisis_muestra_id"],(string)$fila["fecha"],(string)$fila["ppm"],(string)$fila["estado"]];
+            }
+            return $lista;
+        }
     }
 ?>

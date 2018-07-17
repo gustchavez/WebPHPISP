@@ -207,5 +207,18 @@ class AnalisisMuestra
             }
             return $AnalisisMuestras;
         }
+
+        public function reporRecepcionXMuestra(){
+            $db = new DB();
+            $query = "SELECT em.rut as rutEmp, em.nombre as nmbEmpl, em.categoria, mu.fecha_recepcion, mu.temperatura , emp.nombre as nombEmpre, em.rut as rutEmpre , pa.nombre nmbPart, pa.rut as rutPart FROM empleado em JOIN analisis_muestra mu on em.rut = mu.empleado_rut JOIN empresa emp on mu.empresa_codigo = emp.codigo JOIN particular pa on mu.particular_codigo = pa.codigo WHERE em.categoria='R'";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            $lista = [];
+            foreach($rs as $fila){
+                $lista[] = [(string)$fila["rutEmp"],(string)$fila["nmbEmpl"],(string)$fila["categoria"],(string)$fila["fecha_recepcion"],(string)$fila["temperatura"],(string)$fila["nombEmpre"],(string)$fila["rutEmpre"],(string)$fila["nmbPart"],(string)$fila["rutPart"]];
+            }
+            return $lista;
+        }
     }
 ?>

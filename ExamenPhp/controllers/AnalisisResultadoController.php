@@ -117,6 +117,13 @@
 				include 'views/graficoResultadoMuestra.php';
 				include "views/sections/footer.php";
 			}
+
+			public function lista_reporTecnicoXResultado() {
+				$result = $this->analisisResultado->reporTecnicoXResultado();
+	    		include "views/sections/cabecera.php";
+				include 'views/listado_reporTecnicoXResultado.php';
+				include "views/sections/pie.php";
+			}
             
 		}
 	?>
