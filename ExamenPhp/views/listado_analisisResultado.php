@@ -13,6 +13,8 @@
 										<td>Analisis Muestra</td>
 										<td>Analisis Tipo</td>
 										<td>Empleado Rut</td>
+										<td>Grafico</td>
+										<td>Acciones</td>
 									</tr>
 									<?php foreach ($analisisResultados as $analisisResultado){ ?>
 									<tr>
@@ -22,6 +24,7 @@
 										<td><?php echo $analisisResultado->getAnalisisMuestra()      ; ?></td>
 										<td><?php echo $analisisResultado->getAnalisisTipo() ; ?></td>
 										<td><?php echo $analisisResultado->getEmpleadoRut() ; ?></td>
+										<td><a href="manejadorAnalisisResultado.php?accion=graficoResultado&id=<?php echo $analisisResultado->getAnalisisMuestra();?>">Ver</a></td>
 								        
 								        <td><a href="?accion=crudEditar&id=<?php echo $analisisResultado->getId();?>">Edit</a>
 								        - <a href="?accion=eliminar&id=<?php echo $analisisResultado->getId();?>">Delete</a></td>

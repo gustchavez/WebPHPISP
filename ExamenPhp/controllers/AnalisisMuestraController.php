@@ -66,14 +66,16 @@
 			}
             
 			public function buscarXParticular() {
-				$analisisResultados = $this->analisisResultado->buscarXParticular($_REQUEST['codigo']);
+                $this->analisisMuestra->setParticularCodigo($_REQUEST['codigo']);
+				$analisisMuestras = $this->analisisMuestra->buscarXParticular();
 	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
 				include "views/sections/footer.php";
 			}
             
 			public function buscarXEmpresa() {
-				$analisisResultados = $this->analisisResultado->buscarXEmpresa($_REQUEST['codigo']);
+                $this->analisisMuestra->setParticularCodigo($_REQUEST['codigo']);
+				$analisisMuestras = $this->analisisMuestra->buscarXEmpresa();
 	    		include "views/sections/clienteHead.php";
 				include 'views/listado_analisisResultado.php';
 				include "views/sections/footer.php";

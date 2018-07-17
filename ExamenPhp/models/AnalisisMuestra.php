@@ -132,7 +132,7 @@ class AnalisisMuestra
         
         public function editar(){
             $db = new DB();
-            $query = "UPDATE analisis_muestra SET fecha_recepcion = STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), temperatura = $this->temperatura, cantidad = $this->cantidad, empleado_rut = '$this->empleadoRut', particular_codigo = $particularCodigo, empresa_codigo = $this->empresaCodigo WHERE id = $this->id";
+            $query = "UPDATE analisis_muestra SET fecha_recepcion = STR_TO_DATE('$this->fechaRecepcion', '%Y-%m-%d'), temperatura = $this->temperatura, cantidad = $this->cantidad, empleado_rut = '$this->empleadoRut', particular_codigo = $this->particularCodigo, empresa_codigo = $this->empresaCodigo WHERE id = $this->id";
             $sentencia = $db->getConexion()->prepare($query);
             $respuesta = $sentencia->execute();
             return $respuesta;
@@ -163,6 +163,34 @@ class AnalisisMuestra
                 $AnalisisMuestra->setEmpresaCodigo($fila["empresa_codigo"]);
             }
             return $AnalisisMuestra;
+        } 
+        
+        public function buscarXParticular(){
+            $db = new DB();
+            $query = "SELECT id, fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo FROM analisis_muestra WHERE particular_codigo = $this->particularCodigo";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $AnalisisMuestra = new AnalisisMuestra();
+            foreach($rs as $fila){
+                $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
+            }
+            return $AnalisisMuestras;
+        } 
+        
+        public function buscarXEmpresa(){
+            $db = new DB();
+            $query = "SELECT id, fecha_recepcion, temperatura, cantidad, empleado_rut, particular_codigo, empresa_codigo FROM analisis_muestra WHERE empresa_codigo = $this->empresaCodigo";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $AnalisisMuestra = new AnalisisMuestra();
+            foreach($rs as $fila){
+                $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
+            }
+            return $AnalisisMuestras;
         } 
         
         public function muestrasSinResultados()
