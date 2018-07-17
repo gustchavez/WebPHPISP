@@ -25,7 +25,7 @@
 							<a href="registrate.php" class="">Registro</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
-							<a href="login.php" class="">Ingreso</a>
+							<a href="login.php" class="">Cliente</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="loginEmpresa.php" class="">Empresa</a>
@@ -42,7 +42,7 @@
 
 		<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="formulario" name="login">
 			<div class="form-group">
-				<i class="icono izquierda fa fa-user"></i><input type="text" name="rut" class="usuario" placeholder="Rut">
+				<i class="icono izquierda fa fa-user"></i><input type="text" name="rut" class="usuario" placeholder="Rut" >
 			</div>
 
 			<div class="form-group">

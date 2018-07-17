@@ -48,7 +48,7 @@
               <div class="contenedor">
                 <div class="comentario d-flex flex-wrap">
                   <div class="foto">                    
-                    <img src="images/comp.jpg">
+                    <img src="../../WebPHPISP/views/images/comp.jpg">
                     <p style="text-align: justify;"> Derechos reservados</p>
                   </div>        
                 </div>    

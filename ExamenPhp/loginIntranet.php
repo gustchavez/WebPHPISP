@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 
-	$statement = $conexion->prepare('SELECT * FROM empresa WHERE rut = :rut AND password = :password');
+	$statement = $conexion->prepare('SELECT * FROM empleado WHERE rut = :rut AND password = :password');
 
 	$statement->execute(array(
 		':rut' => $rut,
@@ -34,6 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 }
 
-require 'views/sections/loginEmpresa.view.php';
+require 'views/sections/loginIntranet.view.php';
 
 ?>

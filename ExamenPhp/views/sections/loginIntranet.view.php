@@ -25,7 +25,7 @@
 							<a href="registrate.php" class="">Registro</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
-							<a href="login.php" class="">Ingreso</a>
+							<a href="login.php" class="">Cliente</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="loginEmpresa.php" class="">Empresa</a>
@@ -59,10 +59,7 @@
 			<?php endif; ?>
 		</form>
 
-		<p class="texto-registrate">
-			¿ Aun no tienes cuenta ?
-			<a href="registrate.php">Regístrate</a>
-		</p>
+
 	</div>
 
 	<script src="../../WebPHPISP/views/js/jquery-3.2.1.min.js"></script>

@@ -24,7 +24,7 @@
 							<a href="registrate.php" class="">Registro</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
-							<a href="login.php" class="">Ingreso</a>
+							<a href="login.php" class="">Cliente</a>
 			</div>
 			<div class="menu col-lg-1 col-md-2 col-sm-2">			
 							<a href="loginEmpresa.php" class="">Empresa</a>
@@ -46,7 +46,7 @@
 		<div class="row mt-3">
 			<div class="contImagen col-lg-4 col-md-12 col-sm-12">
 				<div class="card">
-					<img src="images/imagen1.jpg" class="card-img-top img-fluid" alt="">
+					<img src="../../WebPHPISP/views/images/imagen1.jpg" class="card-img-top img-fluid" alt="">
 					<div class="card-body">
 						<h3 class="card-title" style="color: black;">Titulo</h3>
 						<p class="card-text" style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium similique vero perferendis dolorem in libero id omnis, esse nesciunt corrupti?</p>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="contImagen col-lg-4 col-md-12 col-sm-12">
 				<div class="card">
-					<img src="images/imagen2.jpg" class="card-img-top img-fluid" alt="">
+					<img src="../../WebPHPISP/views/images/imagen2.jpg" class="card-img-top img-fluid" alt="">
 					<div class="card-body">
 						<h3 class="card-title" style="color: black;">Titulo</h3>
 						<p class="card-text" style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium similique vero perferendis dolorem in libero id omnis, esse nesciunt corrupti?</p>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="contImagen col-lg-4 col-md-12 col-sm-12">
 				<div class="card">
-					<img src="images/imagen3.jpg" class="card-img-top img-fluid" alt="">
+					<img src="../../WebPHPISP/views/images/imagen3.jpg" class="card-img-top img-fluid" alt="">
 					<div class="card-body">
 						<h3 class="card-title" style="color: black;">Titulo</h3>
 						<p class="card-text" style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium similique vero perferendis dolorem in libero id omnis, esse nesciunt corrupti?</p>

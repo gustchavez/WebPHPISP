@@ -88,6 +88,50 @@ body {
 	font-weight: 400;
 }
 
+
+.main .widget form input[type="number"],
+.main .widget form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.main .widget form input[type="number"] {
+	font-weight: 400;
+}
+
+.main .widget form input[type="password"],
+.main .widget form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.main .widget form input[type="password"] {
+	font-weight: 400;
+}
+
+
+.main .widget form input[type="date"],
+.main .widget form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.main .widget form input[type="date"] {
+	font-weight: 400;
+}
+
 .main .widget form textarea {
 	height: 400px;
 	min-height: 200px;
