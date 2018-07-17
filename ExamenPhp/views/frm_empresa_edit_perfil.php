@@ -6,12 +6,11 @@
 
 							<form action="?accion=editarPerfil" method="post">
 							
-								<input type="number" name="codigo"  value="<?php echo $empresa->getCodigo(); ?>" readonly />
-								<input type="text" name="rut" value="<?php echo $empresa->getRut(); ?>"/>
-								<input type="password" name="password" value="<?php echo $empresa->getPassword(); ?>"/>
-								<input type="text" name="nombre" value="<?php echo $empresa->getNombre(); ?>"/>
-								<input type="text" name="direccion" value="<?php echo $empresa->getDireccion(); ?>"/>
-
+								<input type="number" name="codigo" value="<?php echo $empresa->getCodigo(); ?>" readonly />
+								<input type="text" name="rut" value="<?php echo $empresa->getRut(); ?>" readonly />
+								<input type="password" name="password" value="<?php echo $empresa->getPassword(); ?>" required />
+								<input type="text" name="nombre" value="<?php echo $empresa->getNombre(); ?>" required />
+								<input type="text" name="direccion" value="<?php echo $empresa->getDireccion(); ?>" required />
 
 								<div class="d-flex justify-content-end">
 									<button><i class="icon icon-edit"></i> Editar </button>

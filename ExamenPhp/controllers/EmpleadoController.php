@@ -40,6 +40,21 @@
 				}
 			}
             
+			public function editarPerfil() {  
+				$this->empleado->setRut($_REQUEST['rut']);    
+				$this->empleado->setPassword($_REQUEST['password']);
+				$this->empleado->setNombre($_REQUEST['nombre']);
+				$this->empleado->setCategoria($_REQUEST['categoria']);
+
+				if($this->empleado->editar()){
+                    header('Location: manejadorEmpleado.php?accion=crudEditarPerfil&codigo='.$codigo);
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+				}
+				else{
+					echo '<script language="javascript">alert("Error al modificar");</script>';
+				}
+			}
+            
 			public function eliminar() {
 				$this->empleado->setRut($_REQUEST['rut']);
 
@@ -85,6 +100,14 @@
 				$empleado = $this->empleado->buscarXRut();
 	    		include "views/sections/clienteHead.php";
 				include 'views/frm_empleado_edit.php';
+				include "views/sections/footer.php";
+			}
+            
+			public function crudEditarPerfil() {
+				$this->empleado->setRut($_REQUEST['rut']);
+				$empleado = $this->empleado->buscarXRut();
+	    		include "views/sections/clienteHead.php";
+				include 'views/frm_empleado_edit_perfil.php';
 				include "views/sections/footer.php";
 			}
             
