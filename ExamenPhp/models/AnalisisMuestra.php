@@ -185,11 +185,13 @@ class AnalisisMuestra
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
-            
-            $AnalisisMuestra = new AnalisisMuestra();
+            //
+            $AnalisisMuestras = [];
+            //
             foreach($rs as $fila){
                 $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
             }
+            
             return $AnalisisMuestras;
         } 
         
