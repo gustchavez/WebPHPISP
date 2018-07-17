@@ -52,6 +52,7 @@ class Empleado
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Empleados=[];
             foreach($rs as $fila){
                 $Empleados[] = new Empleado($fila["rut"],$fila["nombre"],$fila["password"],$fila["categoria"]);
             }
@@ -81,6 +82,7 @@ class Empleado
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+             $Empleados=[];
             foreach($rs as $fila){
                 $Empleados[] = new Empleado($fila["rut"],$fila["nombre"],$fila["password"],$fila["categoria"]);
             }

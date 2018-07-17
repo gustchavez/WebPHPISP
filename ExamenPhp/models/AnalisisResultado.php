@@ -119,6 +119,7 @@ class AnalisisResultado
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $AnalisisResultados=[];
             foreach($rs as $fila){
                 $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
             }
@@ -131,6 +132,7 @@ class AnalisisResultado
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $AnalisisResultados=[];
             foreach($rs as $fila){
                 $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
             }
@@ -143,6 +145,7 @@ class AnalisisResultado
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $AnalisisResultados=[];
             foreach($rs as $fila){
                 $AnalisisResultados[] = new AnalisisResultado($fila["id"],$fila["fecha"],$fila["ppm"],$fila["estado"],$fila["analisis_muestra_id"],$fila["analisis_tipo_id"],$fila["empleado_rut"]);
             }

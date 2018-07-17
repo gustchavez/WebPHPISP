@@ -34,7 +34,7 @@ class AnalisisTipo
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
-            
+            $AnalisisTipos=[];
             foreach($rs as $fila){
                 $AnalisisTipos[] = new AnalisisTipo($fila["id"], $fila["nombre"]);
             }

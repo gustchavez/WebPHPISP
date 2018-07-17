@@ -51,6 +51,7 @@ class Empresa
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Empresas=[];
             foreach($rs as $fila){
                 $Empresas[] = new Empresa($fila["codigo"],$fila["rut"],$fila["nombre"],$fila["password"],$fila["direccion"]);
             }

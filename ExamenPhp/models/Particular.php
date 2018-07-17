@@ -58,6 +58,7 @@
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Particulares=[];
             foreach($rs as $fila){
                 $Particulares[] = new Particular($fila["codigo"],$fila["rut"],$fila["password"],$fila["nombre"],$fila["direccion"],$fila["email"]);
             }

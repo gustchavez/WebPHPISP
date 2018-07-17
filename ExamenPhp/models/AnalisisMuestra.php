@@ -116,6 +116,7 @@ class AnalisisMuestra
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $AnalisisMuestras=[];
             foreach($rs as $fila){
                 $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
             }
@@ -171,7 +172,7 @@ class AnalisisMuestra
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
-            
+            $AnalisisMuestras=[];
             $AnalisisMuestra = new AnalisisMuestra();
             foreach($rs as $fila){
                 $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
@@ -202,6 +203,7 @@ class AnalisisMuestra
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $AnalisisMuestras=[]; 
             foreach($rs as $fila){
                 $AnalisisMuestras[] = new AnalisisMuestra($fila["id"],$fila["fecha_recepcion"],$fila["temperatura"],$fila["cantidad"],$fila["empleado_rut"],$fila["particular_codigo"],$fila["empresa_codigo"]);
             }

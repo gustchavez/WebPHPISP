@@ -46,6 +46,7 @@
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Telefonos=[];
             foreach($rs as $fila){
                 $Telefonos[] = new Telefono($fila["id"],$fila["numero"],$fila["particular_codigo"]);
             }
@@ -74,7 +75,7 @@
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
-                      
+            $Telefonos=[];
             foreach($rs as $fila){
                 $Telefonos[] = new Telefono($fila["id"],$fila["numero"],$fila["particular_codigo"]);
             }          

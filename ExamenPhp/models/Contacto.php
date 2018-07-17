@@ -63,6 +63,7 @@ class Contacto
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Contactos=[];
             foreach($rs as $fila){
                 $Contactos[] = new Contacto($fila["rut"],$fila["nombre"],$fila["email"],$fila["telefono"],$fila["empresa_codigo"]);
             }
@@ -93,6 +94,7 @@ class Contacto
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
+            $Contactos=[];
             foreach($rs as $fila){
                 $Contactos[] = new Contacto($fila["rut"],$fila["nombre"],$fila["email"],$fila["telefono"],$fila["empresa_codigo"]);
             }
