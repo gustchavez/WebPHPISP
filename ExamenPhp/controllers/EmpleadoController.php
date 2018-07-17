@@ -15,8 +15,19 @@
 				$this->empleado->setCategoria($_REQUEST['categoria']);
 
 				if($this->empleado->crear()){
-					echo "Empleado ingresado correctamente <br/>";
-					echo "<a href='./manejadorEmpleado.php'>Volver</a>";
+                    echo "<script language='javascript'>
+                            alert('Creación Correcta');
+                            window.location.href='./manejadorEmpleado.php';
+                           </script>";                    
+                    
+                    /*echo '<script language="javascript">alert("Creación Correcta");</script>';
+                    $EmpleadoController = new EmpleadoController();
+                    $EmpleadoController->buscarTodas();*/
+                    
+                    /*$empleados = $this->empleado->buscarTodas();
+                    include "views/sections/clienteHead.php";
+                    include 'views/listado_empleados.php';
+                    include "views/sections/footer.php";*/
 				}
 				else{
 					echo "No se pudo realizar la creación <br/>";
@@ -59,8 +70,12 @@
 				$this->empleado->setRut($_REQUEST['rut']);
 
 				if($this->empleado->eliminar()){
-					echo "Empleado eliminado correctamente <br/>";
-					echo "<a href='./manejadorEmpleado.php'>Volver</a>";
+                    echo "<script language='javascript'>
+                            alert('Eliminación Correcta');
+                            window.location.href='./manejadorEmpleado.php';
+                           </script>";        
+					/*echo "Empleado eliminado correctamente <br/>";
+					echo "<a href='./manejadorEmpleado.php'>Volver</a>";*/
 				}
 				else{
 					echo "No se pudo realizar la eliminación <br/>";
