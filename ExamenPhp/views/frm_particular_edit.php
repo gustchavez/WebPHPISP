@@ -12,8 +12,7 @@
 								<input type="text" name="nombre" value="<?php echo $particular->getNombre(); ?>"/>
 								<input type="text" name="direccion" value="<?php echo $particular->getDireccion(); ?>"/>
 								<input type="text" name="email" value="<?php echo $particular->getEmail(); ?>"/>
-
-						
+	
 
 								<div class="d-flex justify-content-end">
 									<button><i class="icon icon-edit"></i> Editar </button>
@@ -27,7 +26,7 @@
 							<div class="contenedor">
 								<div class="comentario d-flex flex-wrap">
 									<div class="foto">										
-										<img src="images/comp.jpg">
+										<img src="../../WebPHPISP/views/images/comp.jpg">
 										<p style="text-align: justify;">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea accusantium, explicabo. Deleniti veritatis officiis similique suscipit officia quae tempora, modi quibusdam consectetur sint dignissimos aperiam quasi repellat aspernatur enim atque.</p>
 									</div>				
 								</div>		

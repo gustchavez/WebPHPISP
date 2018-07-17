@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$resultado = $statement->fetch();
 	if ($resultado !== false) {
 		$_SESSION['rut'] = $rut;
-		echo "Datos Correctos";
+		
+		header('Location: manejadorParticular.php?accion=crudEditar&codigo=8');
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';
 	}
