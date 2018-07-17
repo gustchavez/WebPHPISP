@@ -43,6 +43,22 @@
 				}
 			}
             
+			public function editarPerfil() {
+				$this->particular->setCodigo($_REQUEST['codigo']);  
+				$this->particular->setRut($_REQUEST['rut']);    
+				$this->particular->setPassword($_REQUEST['password']);
+				$this->particular->setNombre($_REQUEST['nombre']);
+				$this->particular->setDireccion($_REQUEST['direccion']);
+				$this->particular->setEmail($_REQUEST['email']);
+
+				if($this->particular->editar()){
+					echo '<script language="javascript">alert("Modificación exitosa");</script>';
+				}
+				else{
+					echo '<script language="javascript">alert("Error al modificar");</script>';
+				}
+			}
+            
 			public function eliminar() {
 				$this->particular->setCodigo($_REQUEST['codigo']);
 
@@ -82,6 +98,13 @@
 				include "views/sections/footer.php";
 			}
             
+            public function crudEditarPerfil() {
+				$this->particular->setCodigo($_REQUEST['codigo']);
+				$particular = $this->particular->buscarXCodigo();
+	    		include "views/sections/clienteHead.php";
+				include 'views/frm_particular_edit_perfil.php';
+				include "views/sections/footer.php";
+			}
 		}
 	?>
 
