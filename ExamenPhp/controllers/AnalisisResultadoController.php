@@ -92,12 +92,9 @@
 				$empleado = new Empleado();
 				$emplRuts = $empleado->setCategoria("T");
 				$emplRuts = $empleado->buscarXCategoria();
-<<<<<<< HEAD
 	    		include "views/sections/clienteHead.php";
-=======
                 //
 	    		include "views/sections/cabecera.php";
->>>>>>> 62983f17b9b999336e8c03da1b3437dae19af63f
 				include 'views/frm_analisisResultado_new.php';
 				include "views/sections/footer.php";
 			}

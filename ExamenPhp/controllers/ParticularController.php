@@ -44,6 +44,7 @@
 			}
             
 			public function editarPerfil() {
+                $codigo=$_REQUEST['codigo'];
 				$this->particular->setCodigo($_REQUEST['codigo']);  
 				$this->particular->setRut($_REQUEST['rut']);    
 				$this->particular->setPassword($_REQUEST['password']);
@@ -52,7 +53,8 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->editar()){
-					echo '<script language="javascript">alert("Modificación exitosa");</script>';
+                    header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
 				}
 				else{
 					echo '<script language="javascript">alert("Error al modificar");</script>';
