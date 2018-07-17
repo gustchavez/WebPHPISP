@@ -26,7 +26,7 @@
 										<td><?php echo $particular->getDireccion(); ?></td>
 										<td><?php echo $particular->getEmail()    ; ?></td>
 								        <td><a href="manejadorTelefono.php?accion=buscarTodas&codigo=<?php echo $particular->getCodigo();?>">Ver</a></td>
-								        <td><a href="manejadorAnalisisResultado.php?accion=buscarXParticular&codigo=<?php echo $particular->getCodigo();?>">Ver</a></td>
+								        <td><a href="manejadorAnalisisMuestra.php?accion=buscarXParticular&codigo=<?php echo $particular->getCodigo();?>">Ver</a></td>
 								        <td><a href="?accion=crudEditar&codigo=<?php echo $particular->getCodigo();?>">Edit</a>
 								        - <a href="?accion=eliminar&codigo=<?php echo $particular->getCodigo();?>">Delete</a></td>
 									</tr>

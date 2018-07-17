@@ -195,7 +195,7 @@ class AnalisisResultado
         public function graficoXId()
         {
             $db = new DB();
-            $query="SELECT analisis_tipo.nombre,analisis_resultado.ppm FROM analisis_tipo join analisis_resultado on analisis_tipo.id = analisis_resultado.analisis_tipo_id ORDER BY analisis_resultado.id WHERE id = '$this->id' ";
+            $query="SELECT analisis_tipo.nombre,analisis_resultado.ppm FROM analisis_tipo join analisis_resultado on analisis_tipo.id = analisis_resultado.analisis_tipo_id WHERE analisis_resultado.analisis_muestra_id = '$this->id' ";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
