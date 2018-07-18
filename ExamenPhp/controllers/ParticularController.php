@@ -66,12 +66,8 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->editar()){
-					echo "<script language='javascript'>
-                            alert('Actualizacion realizada');
-                            window.location.href='./manejadorParticular.php?accion=crudEditarPerfil&codigo='".$codigo"';
-                           </script>"; 
-                    //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
-                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+                    header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
+                    echo '<script language="javascript">alert("Modificacion Correcta");</script>';
 				}
 				else{
 					echo '<script language="javascript">alert("Error al modificar");</script>';
@@ -82,12 +78,8 @@
 				$this->particular->setCodigo($_REQUEST['codigo']);
 
 				if($this->particular->eliminar()){
-					// echo "Particular eliminado correctamente <br/>";
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
-					echo "<script language='javascript'>
-                            alert('Se Elimino Correctamente');
-                            window.location.href='./manejadorParticular.php?accion=eliminar&codigo='".$codigo"';
-                           </script>"; 
+					echo "Particular eliminado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 				else{
 					echo '<script language="javascript">alert("Error al Eliminar");</script>';
