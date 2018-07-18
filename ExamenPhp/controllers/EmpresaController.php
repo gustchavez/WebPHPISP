@@ -104,6 +104,28 @@
 				include "views/sections/footer.php";
 			}
             
+			public function login() {
+				$this->empresa->setRut($_REQUEST['rut']);    
+                $this->empresa->setPassword($_REQUEST['password']);
+                
+                $vble = $this->empresa->login();
+				if($vble->getNombre() != null){
+                    echo "<script language='javascript'>
+                            alert('Bienvenido ".$vble->getNombre()."');
+                            window.location.href='./manejadorAnalisisResultado.php?accion=buscarXEmpresaRO&codigo=".$vble->getCodigo()."';
+                           </script>";
+                    
+                    //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$Particular->getCodigo());
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+				}
+				else{
+					echo "<script language='javascript'>
+                            alert('Error login');
+                            window.location.href='./loginEmpresa.php';
+                           </script>";
+				}
+			}
+            
 		}
 	?>
 

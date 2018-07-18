@@ -98,5 +98,22 @@ class Empresa
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
+              
+        public function login(){
+            $db = new DB();
+            $query = "SELECT codigo, rut, nombre, password, direccion FROM Empresa WHERE rut = '$this->rut' AND password = '$this->password' ";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            $Empresa = new Empresa();
+            foreach($rs as $fila){
+				$Empresa->setCodigo($fila["codigo"]);    
+				$Empresa->setRut($fila["rut"]);    
+				$Empresa->setNombre($fila["nombre"]);
+				$Empresa->setPassword($fila["password"]);
+				$Empresa->setDireccion($fila["direccion"]);
+            }
+            return $Empresa;
+        }
     }
 ?>

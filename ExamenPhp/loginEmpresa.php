@@ -10,8 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$rut = filter_var(strtolower($_POST['rut']), FILTER_SANITIZE_STRING);
 	$password = $_POST['password'];
 	
+	header('Location: manejadorEmpresa.php?accion=login&rut='.$rut.'&password='.$password);
 
-	try {
+	/*try {
 		$conexion = new PDO('mysql:host=localhost;dbname=bbddisp', 'root', '');
 	} catch (PDOException $e) {
 		echo "Error:" . $e->getMessage();
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo "Datos Correctos";
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';
-	}
+	}*/
 }
 
 require 'views/sections/loginEmpresa.view.php';
