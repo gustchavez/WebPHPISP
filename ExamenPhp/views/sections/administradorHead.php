@@ -17,9 +17,13 @@
 					<h2>Dashboard</h2>
 				</div>
 				<nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
-					<a href="#"><i class="icon-home"></i><span>Muestras</span></a>
-					<a href="#"><i class="icon-doc-text"></i><span>Resultados Análisis</span></a>
-					<a href="#"><i class="icon-users"></i><span>Modificar Perfil</span></a>
-					<a href="#"><i class="icon-logout"></i><span>Salir</span></a>
+					<a href="manejadorEmpleado.php"><i class="icon-home"></i><span>Ver PErfil</span></a>
+					<a href="manejadorAnalisisTipo.php"><i class="icon-doc-text"></i><span>Ver Análisis Tipo</span></a>
+					<a href="manejadorAnalisisMuestra.php?accion=lista_reporRecepcionXMuestra"><i class="icon-users"></i><span>Generar reporte recepcion </span></a>
+					<a href="manejadorAnalisisResultado.php?accion=lista_reporTecnicoXResultado"><i class="icon-logout"></i><span>Generar reporte tecnico</span></a>
+					<a href="../../WepPHPISP/cerrar.php"><i class="icon-logout"></i><span>Salir</span></a>
 				</nav>
 			</div>
+
+
+

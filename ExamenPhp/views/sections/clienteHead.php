@@ -17,12 +17,15 @@
 					<h2>CLIENTE</h2>
 				</div>
 				<nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
-					<a href="manejadorParticular.php?accion=crudEditarPerfil&codigo= <?php $_REQUEST['codigo']?> "><i class="icon-home"></i><span>Muestras</span></a>
-					<a href="#"><i class="icon-doc-text"></i><span>Resultados Análisis</span></a>
-					<a href="#"><i class="icon-users"></i><span>Modificar Perfil</span></a>
-					<a href="#"><i class="icon-logout"></i><span>Salir</span></a>
+			
+					<a href="manejadorParticular.php?accion=crudEditarPerfil&codigo= <?php echo $_REQUEST['codigo'];?> "><i class="icon-home"></i><span>Editar Perfil</span></a>
+
+					<a href="manejadorTelefono.php?accion=buscarTodas&codigo= <?php echo $_REQUEST['codigo'];?> "><i class="icon-home"></i><span>Listado Telefono</span></a>
+
+					<a href="manejadorAnalisisResultado.php?accion=buscarXParticularRO&codigo= <?php echo $_REQUEST['codigo'];?> "><i class="icon-home"></i><span>Analisis de Resultado</span></a>
+
+					<a href="../../WepPHPISP/cerrar.php"><i class="icon-logout"></i><span>Salir</span></a>
+
+
 				</nav>
 			</div>
-
-
-			  ?>

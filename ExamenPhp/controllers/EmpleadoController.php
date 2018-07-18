@@ -30,6 +30,8 @@
                     include "views/sections/footer.php";*/
 				}
 				else{
+					echo "No se pudo realizar la creación <br/>";
+					echo "<a href='./manejadorEmpleado.php'>Volver</a>";
 				}
 			}
             
@@ -124,6 +126,41 @@
 				include "views/sections/footer.php";
 			}
             
+			public function login() {
+				$this->empleado->setRut($_REQUEST['rut']);    
+                $this->empleado->setPassword($_REQUEST['password']);
+                
+                $vble = $this->empleado->login();
+				if($vble->getRut() != null){
+                    if ($vble->getCategoria()       == "A") {
+                        echo "<script language='javascript'>
+                                alert('Bienvenido ".$vble->getNombre()." Perfil ".$vble->getCategoria()."');
+                                window.location.href='./manejadorEmpleado.php';
+                               </script>";
+                    } elseif ($vble->getCategoria() == "R") {
+                        echo "<script language='javascript'>
+                                alert('Bienvenido ".$vble->getNombre()." Perfil ".$vble->getCategoria()."');
+                                window.location.href='./manejadorAnalisisMuestra.php?accion=buscarTodas&rut=".$vble->getRut()."';
+                               </script>";
+                    } elseif ($vble->getCategoria() == "T") {
+                        echo "<script language='javascript'>
+                                alert('Bienvenido ".$vble->getNombre()." Perfil ".$vble->getCategoria()."');
+                                window.location.href='./manejadorAnalisisResultado.php?accion=buscarTodas&rut=".$vble->getRut()."';
+                               </script>";
+                    } else {
+                        echo "Sin Categoria";
+                    }
+                    
+                    //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$Particular->getCodigo());
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+				}
+				else{
+					echo "<script language='javascript'>
+                            alert('Error login');
+                            window.location.href='./loginIntranet.php';
+                           </script>";
+				}
+			}
 		}
 	?>
 

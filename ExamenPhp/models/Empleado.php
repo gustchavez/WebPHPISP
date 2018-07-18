@@ -112,5 +112,22 @@ class Empleado
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
+        
+        public function login(){
+            $db = new DB();
+            $query = "SELECT rut, nombre, password, categoria FROM Empleado WHERE rut = '$this->rut' AND password = '$this->password' ";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            
+            $Empleado = new Empleado();
+            foreach($rs as $fila){
+                $Empleado->setRut($fila["rut"]);    
+                $Empleado->setNombre($fila["nombre"]);    
+                $Empleado->setPassword($fila["password"]);
+                $Empleado->setCategoria($fila["categoria"]);
+            }
+            return $Empleado;
+        }
     }
 ?>

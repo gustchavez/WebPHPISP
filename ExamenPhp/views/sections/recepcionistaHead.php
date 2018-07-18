@@ -17,9 +17,19 @@
 					<h2>Dashboard</h2>
 				</div>
 				<nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
-					<a href="#"><i class="icon-home"></i><span>Muestras</span></a>
-					<a href="#"><i class="icon-doc-text"></i><span>Resultados Análisis</span></a>
-					<a href="#"><i class="icon-users"></i><span>Modificar Perfil</span></a>
-					<a href="#"><i class="icon-logout"></i><span>Salir</span></a>
+
+					<a href="manejadorEmpleado.php?accion=crudEditarPerfil&rut=<?php echo $_REQUEST['rut'];?>"><i class="icon-home"></i><span>Modificar Perfil</span></a>
+
+					<a href="manejadorAnalisisMuestra.php?accion=buscarTodas&rut=<?php echo $_REQUEST['rut'];?>"><i class="icon-doc-text"></i><span>Ver Muestras</span></a>
+
+					<a href="../../WepPHPISP/cerrar.php"><i class="icon-users"></i><span>Salir</span></a>
+				
 				</nav>
 			</div>
+
+
+
+
+
+
+			
