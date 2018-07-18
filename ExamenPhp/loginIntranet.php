@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$rut = filter_var(strtolower($_POST['rut']), FILTER_SANITIZE_STRING);
 	$password = $_POST['password'];
 	
-
+    header('Location: manejadorEmpleado.php?accion=login&rut='.$rut.'&password='.$password);
+    /*
 	try {
 		$conexion = new PDO('mysql:host=localhost;dbname=bbddisp', 'root', '');
 	} catch (PDOException $e) {
@@ -31,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo "Datos Correctos";
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';
-	}
+	}*/
 }
 
 require 'views/sections/loginIntranet.view.php';

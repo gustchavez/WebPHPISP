@@ -16,20 +16,12 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->crear()){
-					// echo "Particular ingresado correctamente <br/>";
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
-					echo "<script language='javascript'>
-                            alert('Creación Correcta');
-                            window.location.href='./manejadorParticular.php';
-                           </script>"; 
+					echo "Particular ingresado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 				else{
-					// echo "No se pudo realizar la creación <br/>";
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
-					echo "<script language='javascript'>
-                            alert('Error en la creacion');
-                            window.location.href='./manejadorParticular.php';
-                           </script>";
+					echo "No se pudo realizar la creación <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
             
@@ -42,17 +34,12 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->editar()){
-					// echo "Particular editado correctamente <br/>";
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
-					echo "<script language='javascript'>
-                            alert('Error al Modifcar');
-                            window.location.href='./manejadorParticular.php?accion=crudEditar&codigo='".$codigo"';
-                           </script>"; 
+					echo "Particular editado correctamente <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 				else{
-					// echo "No se pudo realizar la edicion <br/>";
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
-					echo '<script language="javascript">alert("Error al editar");</script>';
+					echo "No se pudo realizar la edicion <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
             
@@ -67,7 +54,7 @@
 
 				if($this->particular->editar()){
                     header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
-                    echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
 				}
 				else{
 					echo '<script language="javascript">alert("Error al modificar");</script>';
@@ -82,8 +69,8 @@
 					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 				else{
-					echo '<script language="javascript">alert("Error al Eliminar");</script>';
-					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo "No se pudo realizar la eliminación <br/>";
+					echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
                                     
