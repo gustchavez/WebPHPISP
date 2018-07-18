@@ -2,9 +2,7 @@
         <div class="row">
           <div class="columna col-lg-7">
             <div class="widget nueva_entrada">
-              <h3 class="titulo"> Grafico </h3>
-
-                
+              <h3 class="titulo"> Grafico </h3>                
                             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                             <script type="text/javascript">
                               google.charts.load('current', {'packages':['bar']});

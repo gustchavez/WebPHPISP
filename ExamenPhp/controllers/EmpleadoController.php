@@ -30,8 +30,6 @@
                     include "views/sections/footer.php";*/
 				}
 				else{
-					echo "No se pudo realizar la creación <br/>";
-					echo "<a href='./manejadorEmpleado.php'>Volver</a>";
 				}
 			}
             

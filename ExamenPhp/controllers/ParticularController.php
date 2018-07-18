@@ -16,12 +16,20 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->crear()){
-					echo "Particular ingresado correctamente <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					// echo "Particular ingresado correctamente <br/>";
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo "<script language='javascript'>
+                            alert('Creación Correcta');
+                            window.location.href='./manejadorParticular.php';
+                           </script>"; 
 				}
 				else{
-					echo "No se pudo realizar la creación <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					// echo "No se pudo realizar la creación <br/>";
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo "<script language='javascript'>
+                            alert('Error en la creacion');
+                            window.location.href='./manejadorParticular.php';
+                           </script>";
 				}
 			}
             
@@ -34,12 +42,17 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->editar()){
-					echo "Particular editado correctamente <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					// echo "Particular editado correctamente <br/>";
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo "<script language='javascript'>
+                            alert('Modifcado Correctamente');
+                            window.location.href='./manejadorParticular.php';
+                           </script>"; 
 				}
 				else{
-					echo "No se pudo realizar la edicion <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					// echo "No se pudo realizar la edicion <br/>";
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo '<script language="javascript">alert("Error al editar");</script>';
 				}
 			}
             
@@ -53,7 +66,11 @@
 				$this->particular->setEmail($_REQUEST['email']);
 
 				if($this->particular->editar()){
-                    header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
+					echo "<script language='javascript'>
+                            alert('Error al Modifcar');
+                            window.location.href='./manejadorParticular.php?accion=crudEditarPerfil&codigo='".$codigo"';
+                           </script>"; 
+                    //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
                     //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
 				}
 				else{
