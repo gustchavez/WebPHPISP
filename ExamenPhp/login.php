@@ -9,9 +9,9 @@ $errores = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$rut = filter_var(strtolower($_POST['rut']), FILTER_SANITIZE_STRING);
 	$password = $_POST['password'];
-
-	
-
+ 
+	header('Location: manejadorParticular.php?accion=login&rut='.$rut.'&password='.$password);
+ /*
 	try {
 		$conexion = new PDO('mysql:host=localhost;dbname=bbddisp', 'root', '');
 	} catch (PDOException $e) {
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		header('Location: manejadorParticular.php?accion=crudEditar&codigo=<?php echo $cod;?>');
 	} else {
 		$errores .= '<li>Datos Incorrectos</li>';
-	}
+	}*/
 }
 
 require 'views/sections/login.view.php';

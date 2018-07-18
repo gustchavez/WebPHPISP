@@ -106,5 +106,23 @@
             $respuesta = $sentencia->execute();
             return $respuesta;
         }
+        
+        public function login(){
+            $db = new DB();
+            $query = "SELECT codigo, rut, password, nombre, direccion, email FROM Particular WHERE rut = '$this->rut' AND password = '$this->password' ";
+            $sentencia = $db->getConexion()->prepare($query);
+            $sentencia->execute();
+            $rs= $sentencia->fetchAll();
+            $Particular = new Particular();
+            foreach($rs as $fila){
+				$Particular->setCodigo($fila["codigo"]);    
+				$Particular->setRut($fila["rut"]);    
+				$Particular->setPassword($fila["password"]);
+				$Particular->setNombre($fila["nombre"]);
+				$Particular->setDireccion($fila["direccion"]);
+				$Particular->setEmail($fila["email"]);
+            }
+            return $Particular;
+        }
     }
 ?>

@@ -107,6 +107,29 @@
 				include 'views/frm_particular_edit_perfil.php';
 				include "views/sections/footer.php";
 			}
+            
+            
+			public function login() {
+				$this->particular->setRut($_REQUEST['rut']);    
+                $this->particular->setPassword($_REQUEST['password']);
+                
+                $vble = $this->particular->login();
+				if($vble->getNombre() != null){
+                    echo "<script language='javascript'>
+                            alert('Bienvenido ".$vble->getNombre()."');
+                            window.location.href='./manejadorAnalisisResultado.php?accion=buscarXParticularRO&codigo=".$vble->getCodigo()."';
+                           </script>";
+                    
+                    //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$Particular->getCodigo());
+                    //echo '<script language="javascript">alert("Modificacion Correcta");</script>';
+				}
+				else{
+					echo "<script language='javascript'>
+                            alert('Error login');
+                            window.location.href='./login.php';
+                           </script>";
+				}
+			}
 		}
 	?>
 

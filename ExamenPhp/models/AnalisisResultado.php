@@ -126,9 +126,9 @@ class AnalisisResultado
             return $AnalisisResultados;
         }
         
-        public function buscarXParticular(){
+        public function buscarXParticular($codigo){
             $db = new DB();
-            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.particular_codigo = $this->particularCodigo";
+            $query = "SELECT ar.id, ar.fecha, ar.ppm, ar.estado, ar.analisis_muestra_id , ar.analisis_tipo_id , ar.empleado_rut  FROM analisis_resultado ar, analisis_muestra am WHERE ar.analisis_muestra_id = am.id AND am.particular_codigo = $codigo";
             $sentencia = $db->getConexion()->prepare($query);
             $sentencia->execute();
             $rs= $sentencia->fetchAll();
