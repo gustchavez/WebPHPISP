@@ -90,8 +90,8 @@
                            </script>"; 
 				}
 				else{
-					echo "No se pudo realizar la eliminación <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo '<script language="javascript">alert("Error al Eliminar");</script>';
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
                                     
