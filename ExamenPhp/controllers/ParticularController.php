@@ -45,8 +45,8 @@
 					// echo "Particular editado correctamente <br/>";
 					// echo "<a href='./manejadorParticular.php'>Volver</a>";
 					echo "<script language='javascript'>
-                            alert('Modifcado Correctamente');
-                            window.location.href='./manejadorParticular.php';
+                            alert('Error al Modifcar');
+                            window.location.href='./manejadorParticular.php?accion=crudEditar&codigo='".$codigo"';
                            </script>"; 
 				}
 				else{
@@ -67,7 +67,7 @@
 
 				if($this->particular->editar()){
 					echo "<script language='javascript'>
-                            alert('Error al Modifcar');
+                            alert('Actualizacion realizada');
                             window.location.href='./manejadorParticular.php?accion=crudEditarPerfil&codigo='".$codigo"';
                            </script>"; 
                     //header('Location: manejadorParticular.php?accion=crudEditarPerfil&codigo='.$codigo);
@@ -82,12 +82,16 @@
 				$this->particular->setCodigo($_REQUEST['codigo']);
 
 				if($this->particular->eliminar()){
-					echo "Particular eliminado correctamente <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					// echo "Particular eliminado correctamente <br/>";
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo "<script language='javascript'>
+                            alert('Se Elimino Correctamente');
+                            window.location.href='./manejadorParticular.php?accion=eliminar&codigo='".$codigo"';
+                           </script>"; 
 				}
 				else{
-					echo "No se pudo realizar la eliminación <br/>";
-					echo "<a href='./manejadorParticular.php'>Volver</a>";
+					echo '<script language="javascript">alert("Error al Eliminar");</script>';
+					// echo "<a href='./manejadorParticular.php'>Volver</a>";
 				}
 			}
                                     
